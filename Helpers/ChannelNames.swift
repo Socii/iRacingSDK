@@ -30,6 +30,7 @@ public extension Telemetry {
     strings.updateValue([], forKey: .pitcrew)
     strings.updateValue([], forKey: .sim)
     strings.updateValue([], forKey: .player)
+    strings.updateValue([], forKey: .inCar)
     strings.updateValue([], forKey: .unsure)
     
     for channel in channels {
@@ -38,7 +39,10 @@ public extension Telemetry {
       string.append("  /// \(channel.value.description).\n")
       string.append("  static let \(name) = \"\(name)\"\n")
       
-      if name.contains(["wear", "speed", "temp", "Rumble", "cold", "pressure"]) {
+      if name.contains("dc") {
+        appendDictionary(string, key: .inCar, dict: &strings)
+      
+      } else if name.contains(["wear", "speed", "temp", "Rumble", "cold", "pressure"]) {
         appendDictionary(string, key: .tyres, dict: &strings)
 
       } else if name.contains(["shock", "ride"]) {
@@ -62,7 +66,7 @@ public extension Telemetry {
       } else if name.contains(["Air", "Wind", "Skies", "Weather", "Fog", "Humidity", "TrackTemp"]) {
         appendDictionary(string, key: .weather, dict: &strings)
         
-      } else if name.contains(["angle", "Rate", "Velocity", "Accel", "Yaw", "Roll", "Speed"]) {
+      } else if name.contains(["angle", "Rate", "Velocity", "Accel", "Yaw", "Roll", "Speed", "Alt", "Lat", "Lon"]) {
         appendDictionary(string, key: .vehicle, dict: &strings)
         
       } else if name.contains(["Pit"]) {
@@ -123,6 +127,7 @@ private extension String {
   static let pitcrew = "PitCrew"
   static let sim = "Sim"
   static let player = "Player"
+  static let inCar = "InCar"
   static let unsure = "Unsure"
 }
 
