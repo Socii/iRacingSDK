@@ -19,6 +19,7 @@
 		3A81B2CC25B4BA6B00272889 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2CB25B4BA6B00272889 /* Debug.swift */; };
 		3A81B2CF25B4BB8A00272889 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2CE25B4BB8A00272889 /* Data+.swift */; };
 		3A81B2D125B4BB9200272889 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2D025B4BB9200272889 /* String+.swift */; };
+		3AA2CAF125B8C19E003D6B3F /* ChannelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */; };
 		3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE916625B5040900DA1DF7 /* Channels.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		3A81B2CB25B4BA6B00272889 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		3A81B2CE25B4BB8A00272889 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		3A81B2D025B4BB9200272889 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNames.swift; sourceTree = "<group>"; };
 		3AAE916625B5040900DA1DF7 /* Channels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 		3A81B29725B4B8FD00272889 = {
 			isa = PBXGroup;
 			children = (
+				3AA2CAEF25B8C17C003D6B3F /* Helpers */,
 				3A81B2CD25B4BB7600272889 /* Foundation+ */,
 				3A81B2BB25B4B91F00272889 /* Sources */,
 				3A81B2A325B4B8FD00272889 /* Resources */,
@@ -118,7 +121,6 @@
 				3A81B2BF25B4BA2E00272889 /* Channel.swift */,
 				3A81B2C125B4BA3D00272889 /* DataType.swift */,
 				3A81B2C925B4BA5D00272889 /* YAML.swift */,
-				3A81B2CB25B4BA6B00272889 /* Debug.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -130,6 +132,15 @@
 				3A81B2D025B4BB9200272889 /* String+.swift */,
 			);
 			path = "Foundation+";
+			sourceTree = "<group>";
+		};
+		3AA2CAEF25B8C17C003D6B3F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A81B2CB25B4BA6B00272889 /* Debug.swift */,
+				3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				3A81B2C225B4BA3D00272889 /* DataType.swift in Sources */,
 				3A81B2CA25B4BA5D00272889 /* YAML.swift in Sources */,
 				3A81B2C825B4BA5500272889 /* Session.swift in Sources */,
+				3AA2CAF125B8C19E003D6B3F /* ChannelNames.swift in Sources */,
 				3A81B2C025B4BA2E00272889 /* Channel.swift in Sources */,
 				3A81B2CC25B4BA6B00272889 /* Debug.swift in Sources */,
 				3A81B2C425B4BA4600272889 /* IBT.swift in Sources */,
