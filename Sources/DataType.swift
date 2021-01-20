@@ -35,56 +35,12 @@ enum IRacingDataType: Int32 {
   func value(from data: Data) -> IRacingDataTypeRepresentable {
     
     switch self {
-      
-    // String.
-    case .IRChar:
-      if let s = String(data: data, encoding: .ascii) {
-        return s
-      } else {
-        logln("Unable to convert Data to String")
-        return ""
-      }
-      
-    // Boolean.
-    case .IRBool:
-      if let b = Int8(data: data) {
-        return b
-      } else {
-        logln("Unable to convert Data to Boolean")
-        return 0
-      }
-      
-    // Integer.
-    case .IRInt:
-      if let t = Int32(data: data) {
-        return t
-      } else {
-        return 0
-      }
-      
-    // Bit Field.
-    case .IRBitfield:
-      if let t = UInt32(data: data) {
-        return t
-      } else {
-        return 0
-      }
-      
-    // Float.
-    case .IRFloat:
-      if let t = Float(data: data) {
-        return t
-      } else {
-        return 0
-      }
-      
-    // Double.
-    case .IRDouble:
-      if let t = Double(data: data) {
-        return t
-      } else {
-        return 0
-      }
+    case .IRChar: return String(data: data, encoding: .ascii)!
+    case .IRBool: return Int8(data: data)!
+    case .IRInt: return Int32(data: data)!
+    case .IRBitfield: return UInt32(data: data)!
+    case .IRFloat: return Float(data: data)!
+    case .IRDouble: return Double(data: data)!
     }
   }
 }
