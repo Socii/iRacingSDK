@@ -5,36 +5,50 @@
 
 import Foundation
 
-// MARK: - Definition
+// MARK: Definition
 
 /// Channel names.
 ///
 public struct Channels {
   
+  /// Strings for tyre channels.
   public enum Tyres { }
-
+  
+  /// Strings for suspension channels.
   public enum Suspension { }
   
+  /// Strings for brackes channels.
   public enum Brakes { }
   
+  /// Strings for engine channels.
   public enum Engine { }
   
+  /// Strings for session channels.
   public enum Session { }
   
+  /// Strings for laps channels.
   public enum Laps { }
   
+  /// Strings for input channels.
   public enum Input { }
   
+  /// Strings for weather channels.
   public enum Weather { }
   
+  /// Strings for orientation channels.
   public enum Orientation { }
 
+  /// Strings for pit crew channels.
   public enum PitCrew { }
   
+  /// Strings for sim channels.
   public enum Sim { }
   
+  /// Strings for player channels.
   public enum Player { }
 }
+
+// MARK: - Player Strings
 
 public extension Channels.Player {
   static let CarDriverIncidentCount = "PlayerCarDriverIncidentCount"
@@ -46,12 +60,14 @@ public extension Channels.Player {
   static let CarPosition = "PlayerCarPosition"
   static let TrackSurfaceMaterial = "PlayerTrackSurfaceMaterial"
   
-  // FIXME: - Not sure these go here.
+  // FIXME: Not sure these go here.
   static let IsOnTrackCar = "IsOnTrackCar"
   static let EnterExitReset = "EnterExitReset"
   static let IsOnTrack = "IsOnTrack"
   static let DriverMarker = "DriverMarker"
 }
+
+// MARK: - Tyres Strings
 
 public extension Channels.Tyres {
   static let RRtempCR = "RRtempCR"
@@ -108,6 +124,8 @@ public extension Channels.Tyres {
 
 }
 
+// MARK: - Suspension Strings
+
 public extension Channels.Suspension {
   static let RFshockDefl = "RFshockDefl"
   static let LFrideHeight = "LFrideHeight"
@@ -125,6 +143,8 @@ public extension Channels.Suspension {
 
 }
 
+// MARK: - Brakes Strings
+
 public extension Channels.Brakes {
   static let dcABS = "dcABS"
   static let dcBrakeBias = "dcBrakeBias"
@@ -134,6 +154,8 @@ public extension Channels.Brakes {
   static let LFbrakeLinePress = "LFbrakeLinePress"
 
 }
+
+// MARK: - Engine Strings
 
 public extension Channels.Engine {
   static let WaterLevel = "WaterLevel"
@@ -159,6 +181,8 @@ public extension Channels.Engine {
 
 }
 
+// MARK: - Pit Crew Strings
+
 public extension Channels.PitCrew {
   static let OnPitRoad = "OnPitRoad"
   static let PitOptRepairLeft = "PitOptRepairLeft"
@@ -173,6 +197,8 @@ public extension Channels.PitCrew {
 
 }
 
+// MARK: - Session Strings
+
 public extension Channels.Session {
   static let SessionTime = "SessionTime"
   static let SessionLapsRemainEx = "SessionLapsRemainEx"
@@ -184,6 +210,8 @@ public extension Channels.Session {
   static let SessionTimeRemain = "SessionTimeRemain"
   
 }
+
+// MARK: - Laps Strings
 
 public extension Channels.Laps {
   
@@ -217,6 +245,8 @@ public extension Channels.Laps {
 
 }
 
+// MARK: - Input Strings
+
 public extension Channels.Input {
   static let ThrottleRaw = "ThrottleRaw"
   static let Clutch = "Clutch"
@@ -234,6 +264,8 @@ public extension Channels.Input {
 
 }
 
+// MARK: - Weather Strings
+
 public extension Channels.Weather {
   static let WeatherType = "WeatherType"
   static let Skies = "Skies"
@@ -247,6 +279,8 @@ public extension Channels.Weather {
   static let AirTemp = "AirTemp"
 
 }
+
+// MARK: - Orientation Strings
 
 public extension Channels.Orientation {
   static let Yaw = "Yaw"
@@ -268,10 +302,14 @@ public extension Channels.Orientation {
 
 }
 
+// MARK: - Sim Strings
+
 public extension Channels.Sim {
   static let CpuUsageBG = "CpuUsageBG"
   static let FrameRate = "FrameRate"
 }
+
+// MARK: - Unsure
 
 private struct Unsure {
   static let Alt = "Alt"
