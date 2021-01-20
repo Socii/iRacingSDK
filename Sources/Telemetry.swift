@@ -5,14 +5,6 @@
 
 import Foundation
 
-//SIM_STATUS_URL = 'http://127.0.0.1:32034/get_sim_status?object=simStatus'
-//
-//MEMMAPFILE = 'Local\\IRSDKMemMapFileName'
-//MEMMAPFILESIZE = 1164 * 1024
-//BROADCASTMSGNAME = 'IRSDK_BROADCASTMSG'
-
-import Foundation
-
 // MARK: Definition
 
 /// An iRacing telemetry object.
@@ -118,16 +110,16 @@ private extension Telemetry {
   ///
   private func populate(channel: inout Channel) {
     
-    // Create an empty data object.
+    // Create an empty array.
     var samples = [IRacingDataType]()
-    let dataType = channel.dataType
     
     // Set the cursor to the beginning
     // of the Channel data.
     var cursor = header.bufferOffset + channel.offset
     
     // Read from the IBT file.
-    let length = channel.dataType.length
+    let dataType = channel.dataType
+    let length = dataType.length
     var hasSample = true
     while hasSample == true {
       ibt.seek(toFileOffset: cursor)
@@ -183,13 +175,13 @@ extension Telemetry {
     /// The length of the buffer.
     let bufferLength: UInt64
 
-    /// The first part of the buffer.
+    /// Unused (padding?).
     let part1: Int32
 
-    /// The second part of the buffer.
+    /// Unused (padding?).
     let part2: Int32
     
-    /// The third part of the buffer.
+    /// Unused (padding?).
     let part3: Int32
 
     /// The offset of the buffer in the data sequence.
