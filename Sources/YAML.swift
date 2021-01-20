@@ -5,7 +5,8 @@
 
 import Foundation
 
-/// A simple YAML parser based on the irsdk C++ code provided by iRacing.
+/// A simple YAML parser based on the irsdk C++ code
+/// provided by iRacing.
 ///
 struct YAML {
   
