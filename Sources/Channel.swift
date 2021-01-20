@@ -41,24 +41,19 @@ extension Channel {
     return header.name
   }
   
+  /// Returns the measurement unit of the channel.
+  public var unit: String {
+    return header.unit
+  }
+  
   /// Returns the data type of the channel.
   var dataType: IRacingDataType {
     return header.dataType
   }
-  
+
   /// Returns the offset of the channel.
   var offset: UInt64 {
     return header.offset
-  }
-  
-  /// Returns the number of samples in the channel.
-  var sampleCount: Int {
-    return samples.count
-  }
-  
-  /// The length of each sample in bytes.
-  var sampleLength: Int {
-    return dataType.length
   }
 }
 
@@ -130,6 +125,8 @@ extension Channel {
       unit = String(data: data[112..<144],
                     encoding: .ascii)?
         .replacingOccurrences(of: "\0", with: "") ?? ""
+      
+//      print("name: \(name) (\(unit)) - \(dataType)")
     }
   }
 }
