@@ -35,8 +35,8 @@ public struct Channels {
   /// Strings for weather channels.
   public enum Weather { }
   
-  /// Strings for orientation channels.
-  public enum Orientation { }
+  /// Strings for vehicle channels.
+  public enum Vehicle { }
 
   /// Strings for pit crew channels.
   public enum PitCrew { }
@@ -46,277 +46,659 @@ public struct Channels {
   
   /// Strings for player channels.
   public enum Player { }
-}
-
-// MARK: - Player Strings
-
-public extension Channels.Player {
-  static let CarDriverIncidentCount = "PlayerCarDriverIncidentCount"
-  static let CarTeamIncidentCount = "PlayerCarTeamIncidentCount"
-  static let TrackSurface = "PlayerTrackSurface"
-  static let CarIdx = "PlayerCarIdx"
-  static let CarClassPosition = "PlayerCarClassPosition"
-  static let CarMyIncidentCount = "PlayerCarMyIncidentCount"
-  static let CarPosition = "PlayerCarPosition"
-  static let TrackSurfaceMaterial = "PlayerTrackSurfaceMaterial"
   
-  // FIXME: Not sure these go here.
-  static let IsOnTrackCar = "IsOnTrackCar"
-  static let EnterExitReset = "EnterExitReset"
-  static let IsOnTrack = "IsOnTrack"
-  static let DriverMarker = "DriverMarker"
+  public enum Unsure { }
 }
 
-// MARK: - Tyres Strings
-
-public extension Channels.Tyres {
-  static let RRtempCR = "RRtempCR"
-  static let RRwearM = "RRwearM"
-  static let LRwearL = "LRwearL"
-  static let LFwearM = "LFwearM"
-  static let RFspeed = "RFspeed"
-  static let RRtempCL = "RRtempCL"
-  static let RRtempL = "RRtempL"
-  static let TireLF_RumblePitch = "TireLF_RumblePitch"
-  static let LFcoldPressure = "LFcoldPressure"
-  static let LFtempCL = "LFtempCL"
-  static let LRwearR = "LRwearR"
-  static let LFwearR = "LFwearR"
-  static let LRtempCR = "LRtempCR"
-  static let LRcoldPressure = "LRcoldPressure"
-  static let RFtempCR = "RFtempCR"
-  static let RFtempM = "RFtempM"
-  static let RFcoldPressure = "RFcoldPressure"
-  static let LFtempL = "LFtempL"
-  static let RFtempCL = "RFtempCL"
-  static let LFtempCM = "LFtempCM"
-  static let RFtempR = "RFtempR"
-  static let TireLR_RumblePitch = "TireLR_RumblePitch"
-  static let LRtempR = "LRtempR"
-  static let RRcoldPressure = "RRcoldPressure"
-  static let LFspeed = "LFspeed"
-  static let LFtempM = "LFtempM"
-  static let RRwearR = "RRwearR"
-  static let RRtempCM = "RRtempCM"
-  static let LFwearL = "LFwearL"
-  static let RRwearL = "RRwearL"
-  static let TireRR_RumblePitch = "TireRR_RumblePitch"
-  static let RFwearL = "RFwearL"
-  static let RFwearM = "RFwearM"
-  static let LRtempL = "LRtempL"
-  static let RRspeed = "RRspeed"
-  static let RFtempL = "RFtempL"
-  static let LRpressure = "LRpressure"
-  static let LFpressure = "LFpressure"
-  static let LRtempCL = "LRtempCL"
-  static let LRwearM = "LRwearM"
-  static let RRtempM = "RRtempM"
-  static let TireRF_RumblePitch = "TireRF_RumblePitch"
-  static let LRspeed = "LRspeed"
-  static let LRtempCM = "LRtempCM"
-  static let RFtempCM = "RFtempCM"
-  static let RFpressure = "RFpressure"
-  static let RRpressure = "RRpressure"
-  static let LFtempR = "LFtempR"
-  static let RRtempR = "RRtempR"
-  static let RFwearR = "RFwearR"
-  static let LFtempCR = "LFtempCR"
-
-}
-
-// MARK: - Suspension Strings
-
-public extension Channels.Suspension {
-  static let RFshockDefl = "RFshockDefl"
-  static let LFrideHeight = "LFrideHeight"
-  static let LFshockVel = "LFshockVel"
-  static let LRshockDefl = "LRshockDefl"
-  static let LFshockDefl = "LFshockDefl"
-  static let RRshockVel = "RRshockVel"
-  static let RRrideHeight = "RRrideHeight"
-  static let RFshockVel = "RFshockVel"
-  static let LRshockVel = "LRshockVel"
-  static let RRshockDefl = "RRshockDefl"
-  static let RFrideHeight = "RFrideHeight"
-  static let CFSRrideHeight = "CFSRrideHeight"
-  static let LRrideHeight = "LRrideHeight"
-
-}
-
-// MARK: - Brakes Strings
-
-public extension Channels.Brakes {
-  static let dcABS = "dcABS"
-  static let dcBrakeBias = "dcBrakeBias"
-  static let LRbrakeLinePress = "LRbrakeLinePress"
-  static let RFbrakeLinePress = "RFbrakeLinePress"
-  static let RRbrakeLinePress = "RRbrakeLinePress"
-  static let LFbrakeLinePress = "LFbrakeLinePress"
-
-}
-
-// MARK: - Engine Strings
-
-public extension Channels.Engine {
-  static let WaterLevel = "WaterLevel"
-  static let RPM = "RPM"
-  static let EngineWarnings = "EngineWarnings"
-  static let FuelPress = "FuelPress"
-  static let OilLevel = "OilLevel"
-  static let WaterTemp = "WaterTemp"
-  static let ShiftGrindRPM = "ShiftGrindRPM"
-  static let Voltage = "Voltage"
-  static let OilPress = "OilPress"
-  static let ManifoldPress = "ManifoldPress"
-  static let OilTemp = "OilTemp"
-  static let dcThrottleShape = "dcThrottleShape"
-  static let dcTractionControl = "dcTractionControl"
-  static let ShiftIndicatorPct = "ShiftIndicatorPct"
-  static let FuelLevelPct = "FuelLevelPct"
-  static let FuelLevel = "FuelLevel"
-  static let Gear = "Gear"
-  static let FuelUsePerHour = "FuelUsePerHour"
-  static let dcFuelMixture = "dcFuelMixture"
-  static let ShiftPowerPct = "ShiftPowerPct"
-
-}
-
-// MARK: - Pit Crew Strings
-
-public extension Channels.PitCrew {
-  static let OnPitRoad = "OnPitRoad"
-  static let PitOptRepairLeft = "PitOptRepairLeft"
-  static let PitRepairLeft = "PitRepairLeft"
-  static let PitSvFuel = "PitSvFuel"
-  static let TrackTempCrew = "TrackTempCrew"
-  static let PitSvRRP = "PitSvRRP"
-  static let PitSvRFP = "PitSvRFP"
-  static let PitSvLFP = "PitSvLFP"
-  static let PitSvFlags = "PitSvFlags"
-  static let PitSvLRP = "PitSvLRP"
-
-}
-
-// MARK: - Session Strings
-
-public extension Channels.Session {
-  static let SessionTime = "SessionTime"
-  static let SessionLapsRemainEx = "SessionLapsRemainEx"
-  static let SessionState = "SessionState"
-  static let SessionTick = "SessionTick"
-  static let SessionLapsRemain = "SessionLapsRemain"
-  static let SessionUniqueID = "SessionUniqueID"
-  static let SessionNum = "SessionNum"
-  static let SessionTimeRemain = "SessionTimeRemain"
-  
-}
-
-// MARK: - Laps Strings
-
-public extension Channels.Laps {
-  
-  static let LapDeltaToSessionOptimalLap_DD = "LapDeltaToSessionOptimalLap_DD"
-  static let LapDeltaToBestLap = "LapDeltaToBestLap"
-  static let LapLastLapTime = "LapLastLapTime"
-  static let LapDist = "LapDist"
-  static let LapDeltaToSessionBestLap = "LapDeltaToSessionBestLap"
-  static let LapCurrentLapTime = "LapCurrentLapTime"
-  static let LapDeltaToSessionBestLap_DD = "LapDeltaToSessionBestLap_DD"
-  static let LapDeltaToOptimalLap_DD = "LapDeltaToOptimalLap_DD"
-  static let LapLasNLapSeq = "LapLasNLapSeq"
-  static let LapDeltaToOptimalLap = "LapDeltaToOptimalLap"
-  static let LapDeltaToSessionOptimalLap = "LapDeltaToSessionOptimalLap"
-  static let Lap = "Lap"
-  static let LapBestNLapLap = "LapBestNLapLap"
-  static let LapBestNLapTime = "LapBestNLapTime"
-  static let LapDeltaToBestLap_DD = "LapDeltaToBestLap_DD"
-  static let LapDeltaToSessionLastlLap_OK = "LapDeltaToSessionLastlLap_OK"
-  static let LapBestLapTime = "LapBestLapTime"
-  static let LapDeltaToSessionBestLap_OK = "LapDeltaToSessionBestLap_OK"
-  static let LapDeltaToOptimalLap_OK = "LapDeltaToOptimalLap_OK"
-  static let LapCompleted = "LapCompleted"
-  static let LapDistPct = "LapDistPct"
-  static let LapDeltaToSessionOptimalLap_OK = "LapDeltaToSessionOptimalLap_OK"
-  static let LapLastNLapTime = "LapLastNLapTime"
-  static let LapDeltaToSessionLastlLap_DD = "LapDeltaToSessionLastlLap_DD"
-  static let LapDeltaToBestLap_OK = "LapDeltaToBestLap_OK"
-  static let LapBestLap = "LapBestLap"
-  static let LapDeltaToSessionLastlLap = "LapDeltaToSessionLastlLap"
-
-}
-
-// MARK: - Input Strings
-
-public extension Channels.Input {
-  static let ThrottleRaw = "ThrottleRaw"
-  static let Clutch = "Clutch"
-  static let PushToPass = "PushToPass"
-  static let SteeringWheelAngle = "SteeringWheelAngle"
-  static let HandbrakeRaw = "HandbrakeRaw"
-  static let SteeringWheelAngleMax = "SteeringWheelAngleMax"
-  static let Brake = "Brake"
-  static let BrakeRaw = "BrakeRaw"
-  static let Throttle = "Throttle"
-  
-  // FIXME: Not sure these go here.
-  static let SteeringWheelPctTorque = "SteeringWheelPctTorque"
-  static let SteeringWheelPctTorqueSign = "SteeringWheelPctTorqueSign"
-
-}
-
-// MARK: - Weather Strings
+// MARK: - Weather
 
 public extension Channels.Weather {
-  static let WeatherType = "WeatherType"
-  static let Skies = "Skies"
-  static let AirPressure = "AirPressure"
-  static let TrackTemp = "TrackTemp"
+
+  /// Wind velocity at start/finish line.
   static let WindVel = "WindVel"
+
+  /// Fog level.
   static let FogLevel = "FogLevel"
-  static let WindDir = "WindDir"
-  static let RelativeHumidity = "RelativeHumidity"
-  static let AirDensity = "AirDensity"
+
+  /// Temperature of air at start/finish line.
   static let AirTemp = "AirTemp"
 
+  /// Weather type (0=constant, 1=dynamic).
+  static let WeatherType = "WeatherType"
+
+  /// Temperature of track measured by crew around track.
+  static let TrackTempCrew = "TrackTempCrew"
+
+  /// Density of air at start/finish line.
+  static let AirDensity = "AirDensity"
+
+  /// Skies (0=clear/1=p cloudy/2=m cloudy/3=overcast).
+  static let Skies = "Skies"
+
+  /// Temperature of track at start/finish line.
+  static let TrackTemp = "TrackTemp"
+
+  /// Relative Humidity.
+  static let RelativeHumidity = "RelativeHumidity"
+
+  /// Wind direction at start/finish line.
+  static let WindDir = "WindDir"
+
+  /// Pressure of air at start/finish line.
+  static let AirPressure = "AirPressure"
+
 }
 
-// MARK: - Orientation Strings
 
-public extension Channels.Orientation {
-  static let Yaw = "Yaw"
-  static let LatAccel = "LatAccel"
-  static let LongAccel = "LongAccel"
-  static let YawNorth = "YawNorth"
+// MARK: - Vehicle
+
+public extension Channels.Vehicle {
+
+  /// Vertical acceleration (including gravity).
   static let VertAccel = "VertAccel"
-  static let Roll = "Roll"
+
+  /// Longitudinal acceleration (including gravity).
+  static let LongAccel = "LongAccel"
+
+  /// Roll rate.
   static let RollRate = "RollRate"
-  static let YawRate = "YawRate"
-  static let VelocityY = "VelocityY"
-  static let Lon = "Lon"
-  static let Lat = "Lat"
-  static let PitchRate = "PitchRate"
-  static let Pitch = "Pitch"
-  static let VelocityX = "VelocityX"
+
+  /// Lateral acceleration (including gravity).
+  static let LatAccel = "LatAccel"
+
+  /// GPS vehicle speed.
   static let Speed = "Speed"
+
+  /// Y velocity.
+  static let VelocityY = "VelocityY"
+
+  /// Pitch rate.
+  static let PitchRate = "PitchRate"
+
+  /// Roll orientation.
+  static let Roll = "Roll"
+
+  /// X velocity.
+  static let VelocityX = "VelocityX"
+
+  /// Yaw rate.
+  static let YawRate = "YawRate"
+
+  /// Z velocity.
   static let VelocityZ = "VelocityZ"
 
+  /// Yaw orientation.
+  static let Yaw = "Yaw"
+
+  /// Yaw orientation relative to north.
+  static let YawNorth = "YawNorth"
+
 }
 
-// MARK: - Sim Strings
+// MARK: - Engine
+
+public extension Channels.Engine {
+
+  /// Engine voltage.
+  static let Voltage = "Voltage"
+
+  /// Liters of fuel remaining.
+  static let FuelLevel = "FuelLevel"
+
+  /// Bitfield for warning lights.
+  static let EngineWarnings = "EngineWarnings"
+
+  /// Engine manifold pressure.
+  static let ManifoldPress = "ManifoldPress"
+
+  /// Engine oil pressure.
+  static let OilPress = "OilPress"
+
+  /// Engine coolant level.
+  static let WaterLevel = "WaterLevel"
+
+  /// Engine oil level.
+  static let OilLevel = "OilLevel"
+
+  /// Engine fuel used instantaneous.
+  static let FuelUsePerHour = "FuelUsePerHour"
+
+  /// Pit service fuel add amount.
+  static let PitSvFuel = "PitSvFuel"
+
+  /// Engine oil temperature.
+  static let OilTemp = "OilTemp"
+
+  /// Engine coolant temp.
+  static let WaterTemp = "WaterTemp"
+
+  /// Percent fuel remaining.
+  static let FuelLevelPct = "FuelLevelPct"
+
+  /// Engine rpm.
+  static let RPM = "RPM"
+
+  /// In car fuel mixture adjustment.
+  static let dcFuelMixture = "dcFuelMixture"
+
+  /// RPM of shifter grinding noise.
+  static let ShiftGrindRPM = "ShiftGrindRPM"
+
+  /// Engine fuel pressure.
+  static let FuelPress = "FuelPress"
+
+}
+
+// MARK: - Suspension
+
+public extension Channels.Suspension {
+
+  /// RR shock deflection.
+  static let RRshockDefl = "RRshockDefl"
+
+  /// Center front splitter ride height.
+  static let CFSRrideHeight = "CFSRrideHeight"
+
+  /// LR shock deflection.
+  static let LRshockDefl = "LRshockDefl"
+
+  /// LF shock deflection.
+  static let LFshockDefl = "LFshockDefl"
+
+  /// LR ride height.
+  static let LRrideHeight = "LRrideHeight"
+
+  /// RF ride height.
+  static let RFrideHeight = "RFrideHeight"
+
+  /// LF ride height.
+  static let LFrideHeight = "LFrideHeight"
+
+  /// RF shock deflection.
+  static let RFshockDefl = "RFshockDefl"
+
+  /// LR shock velocity.
+  static let LRshockVel = "LRshockVel"
+
+  /// RF shock velocity.
+  static let RFshockVel = "RFshockVel"
+
+  /// RR ride height.
+  static let RRrideHeight = "RRrideHeight"
+
+  /// RR shock velocity.
+  static let RRshockVel = "RRshockVel"
+
+  /// LF shock velocity.
+  static let LFshockVel = "LFshockVel"
+
+}
+
+// MARK: - Sim
 
 public extension Channels.Sim {
+
+  /// Percent of available tim bg thread took with a 1 sec avg.
   static let CpuUsageBG = "CpuUsageBG"
+  
+  /// Average frames per second.
   static let FrameRate = "FrameRate"
+}
+
+// MARK: - Brakes
+
+public extension Channels.Brakes {
+
+  /// RF brake line pressure.
+  static let RFbrakeLinePress = "RFbrakeLinePress"
+
+  /// LF brake line pressure.
+  static let LFbrakeLinePress = "LFbrakeLinePress"
+
+  /// 0=brake released to 1=max pedal force.
+  static let Brake = "Brake"
+
+  /// Raw brake input 0=brake released to 1=max pedal force.
+  static let BrakeRaw = "BrakeRaw"
+
+  /// In car abs adjustment.
+  static let dcABS = "dcABS"
+
+  /// RR brake line pressure.
+  static let RRbrakeLinePress = "RRbrakeLinePress"
+
+  /// LR brake line pressure.
+  static let LRbrakeLinePress = "LRbrakeLinePress"
+
+  /// In car brake bias adjustment.
+  static let dcBrakeBias = "dcBrakeBias"
+
+  /// Raw handbrake input 0=handbrake released to 1=max force.
+  static let HandbrakeRaw = "HandbrakeRaw"
+
+}
+
+// MARK: - PitCrew
+
+public extension Channels.PitCrew {
+
+  /// Time left for optional repairs if repairs are active.
+  static let PitOptRepairLeft = "PitOptRepairLeft"
+
+  /// Pit service left rear tire pressure.
+  static let PitSvLRP = "PitSvLRP"
+
+  /// Pit service right rear tire pressure.
+  static let PitSvRRP = "PitSvRRP"
+
+  /// Time left for mandatory pit repairs if repairs are active.
+  static let PitRepairLeft = "PitRepairLeft"
+
+  /// Pitch orientation.
+  static let Pitch = "Pitch"
+
+  /// Is the player car on pit road between the cones.
+  static let OnPitRoad = "OnPitRoad"
+
+  /// Pit service right front tire pressure.
+  static let PitSvRFP = "PitSvRFP"
+
+  /// Bitfield of pit service checkboxes.
+  static let PitSvFlags = "PitSvFlags"
+
+  /// Pit service left front tire pressure.
+  static let PitSvLFP = "PitSvLFP"
+
+}
+
+// MARK: - Laps
+
+public extension Channels.Laps {
+
+  /// Player best N average lap time.
+  static let LapBestNLapTime = "LapBestNLapTime"
+
+  /// Player num consecutive clean laps completed for N average.
+  static let LapLasNLapSeq = "LapLasNLapSeq"
+
+  /// Players last lap time.
+  static let LapLastLapTime = "LapLastLapTime"
+
+  /// Players best lap time.
+  static let LapBestLapTime = "LapBestLapTime"
+
+  /// Rate of change of delta time for best lap.
+  static let LapDeltaToBestLap_DD = "LapDeltaToBestLap_DD"
+
+  /// Delta time for optimal lap is valid.
+  static let LapDeltaToOptimalLap_OK = "LapDeltaToOptimalLap_OK"
+
+  /// Player last N average lap time.
+  static let LapLastNLapTime = "LapLastNLapTime"
+
+  /// Percentage distance around lap.
+  static let LapDistPct = "LapDistPct"
+
+  /// Rate of change of delta time for optimal lap.
+  static let LapDeltaToOptimalLap_DD = "LapDeltaToOptimalLap_DD"
+
+  /// Laps started count.
+  static let Lap = "Lap"
+
+  /// Delta time for optimal lap.
+  static let LapDeltaToOptimalLap = "LapDeltaToOptimalLap"
+
+  /// Delta time for best lap.
+  static let LapDeltaToBestLap = "LapDeltaToBestLap"
+
+  /// Player last lap in best N average lap time.
+  static let LapBestNLapLap = "LapBestNLapLap"
+
+  /// Delta time for best lap is valid.
+  static let LapDeltaToBestLap_OK = "LapDeltaToBestLap_OK"
+
+  /// Meters traveled from S/F this lap.
+  static let LapDist = "LapDist"
+
+  /// Estimate of players current lap time as shown in F3 box.
+  static let LapCurrentLapTime = "LapCurrentLapTime"
+
+  /// Players best lap number.
+  static let LapBestLap = "LapBestLap"
+
+  /// Laps completed count.
+  static let LapCompleted = "LapCompleted"
+
+}
+
+// MARK: - Tyres
+
+public extension Channels.Tyres {
+
+  /// LF tire left percent tread remaining.
+  static let LFwearL = "LFwearL"
+
+  /// RF tire left surface temperature.
+  static let RFtempL = "RFtempL"
+
+  /// LF tire right surface temperature.
+  static let LFtempR = "LFtempR"
+
+  /// RR tire middle percent tread remaining.
+  static let RRwearM = "RRwearM"
+
+  /// LR tire pressure.
+  static let LRpressure = "LRpressure"
+
+  /// LR tire cold pressure, as set in the garage.
+  static let LRcoldPressure = "LRcoldPressure"
+
+  /// Players RR Tire Sound rumblestrip pitch.
+  static let TireRR_RumblePitch = "TireRR_RumblePitch"
+
+  /// LF tire cold pressure, as set in the garage.
+  static let LFcoldPressure = "LFcoldPressure"
+
+  /// LF tire middle carcass temperature.
+  static let LFtempCM = "LFtempCM"
+
+  /// LF tire right carcass temperature.
+  static let LFtempCR = "LFtempCR"
+
+  /// RR tire middle carcass temperature.
+  static let RRtempCM = "RRtempCM"
+
+  /// LR tire left surface temperature.
+  static let LRtempL = "LRtempL"
+
+  /// LR tire left carcass temperature.
+  static let LRtempCL = "LRtempCL"
+
+  /// LF tire left carcass temperature.
+  static let LFtempCL = "LFtempCL"
+
+  /// RF tire left carcass temperature.
+  static let RFtempCL = "RFtempCL"
+
+  /// LR tire right percent tread remaining.
+  static let LRwearR = "LRwearR"
+
+  /// Players RF Tire Sound rumblestrip pitch.
+  static let TireRF_RumblePitch = "TireRF_RumblePitch"
+
+  /// RR tire cold pressure, as set in the garage.
+  static let RRcoldPressure = "RRcoldPressure"
+
+  /// RR tire left carcass temperature.
+  static let RRtempCL = "RRtempCL"
+
+  /// LF wheel speed.
+  static let LFspeed = "LFspeed"
+
+  /// RF tire cold pressure, as set in the garage.
+  static let RFcoldPressure = "RFcoldPressure"
+
+  /// RR tire right percent tread remaining.
+  static let RRwearR = "RRwearR"
+
+  /// RF tire right carcass temperature.
+  static let RFtempCR = "RFtempCR"
+
+  /// RR tire middle surface temperature.
+  static let RRtempM = "RRtempM"
+
+  /// RF tire right surface temperature.
+  static let RFtempR = "RFtempR"
+
+  /// RR tire left surface temperature.
+  static let RRtempL = "RRtempL"
+
+  /// LF tire middle surface temperature.
+  static let LFtempM = "LFtempM"
+
+  /// LR tire right carcass temperature.
+  static let LRtempCR = "LRtempCR"
+
+  /// Players LR Tire Sound rumblestrip pitch.
+  static let TireLR_RumblePitch = "TireLR_RumblePitch"
+
+  /// RF tire middle percent tread remaining.
+  static let RFwearM = "RFwearM"
+
+  /// LF tire middle percent tread remaining.
+  static let LFwearM = "LFwearM"
+
+  /// RF tire pressure.
+  static let RFpressure = "RFpressure"
+
+  /// LR tire middle percent tread remaining.
+  static let LRwearM = "LRwearM"
+
+  /// LR tire right surface temperature.
+  static let LRtempR = "LRtempR"
+
+  /// RR tire right carcass temperature.
+  static let RRtempCR = "RRtempCR"
+
+  /// RR tire left percent tread remaining.
+  static let RRwearL = "RRwearL"
+
+  /// RF tire left percent tread remaining.
+  static let RFwearL = "RFwearL"
+
+  /// RF wheel speed.
+  static let RFspeed = "RFspeed"
+
+  /// LF tire left surface temperature.
+  static let LFtempL = "LFtempL"
+
+  /// LR tire middle surface temperature.
+  static let LRtempM = "LRtempM"
+
+  /// Players LF Tire Sound rumblestrip pitch.
+  static let TireLF_RumblePitch = "TireLF_RumblePitch"
+
+  /// RR wheel speed.
+  static let RRspeed = "RRspeed"
+
+  /// LR tire left percent tread remaining.
+  static let LRwearL = "LRwearL"
+
+  /// LF tire right percent tread remaining.
+  static let LFwearR = "LFwearR"
+
+  /// RR tire pressure.
+  static let RRpressure = "RRpressure"
+
+  /// LR wheel speed.
+  static let LRspeed = "LRspeed"
+
+  /// RF tire right percent tread remaining.
+  static let RFwearR = "RFwearR"
+
+  /// RF tire middle carcass temperature.
+  static let RFtempCM = "RFtempCM"
+
+  /// LR tire middle carcass temperature.
+  static let LRtempCM = "LRtempCM"
+
+  /// RR tire right surface temperature.
+  static let RRtempR = "RRtempR"
+
+  /// RF tire middle surface temperature.
+  static let RFtempM = "RFtempM"
+
+  /// LF tire pressure.
+  static let LFpressure = "LFpressure"
+
+}
+
+// MARK: - Session
+
+public extension Channels.Session {
+
+  /// Delta time for session optimal lap is valid.
+  static let LapDeltaToSessionOptimalLap_OK = "LapDeltaToSessionOptimalLap_OK"
+
+  /// Delta time for session last lap.
+  static let LapDeltaToSessionLastlLap = "LapDeltaToSessionLastlLap"
+
+  /// Session ID.
+  static let SessionUniqueID = "SessionUniqueID"
+
+  /// Current update number.
+  static let SessionTick = "SessionTick"
+
+  /// Rate of change of delta time for session optimal lap.
+  static let LapDeltaToSessionOptimalLap_DD = "LapDeltaToSessionOptimalLap_DD"
+
+  /// Old laps left till session ends use SessionLapsRemainEx.
+  static let SessionLapsRemain = "SessionLapsRemain"
+
+  /// Session state.
+  static let SessionState = "SessionState"
+
+  /// Delta time for session optimal lap.
+  static let LapDeltaToSessionOptimalLap = "LapDeltaToSessionOptimalLap"
+
+  /// New improved laps left till session ends.
+  static let SessionLapsRemainEx = "SessionLapsRemainEx"
+
+  /// Delta time for session best lap is valid.
+  static let LapDeltaToSessionBestLap_OK = "LapDeltaToSessionBestLap_OK"
+
+  /// Seconds since session start.
+  static let SessionTime = "SessionTime"
+
+  /// Seconds left till session ends.
+  static let SessionTimeRemain = "SessionTimeRemain"
+
+  /// Rate of change of delta time for session best lap.
+  static let LapDeltaToSessionBestLap_DD = "LapDeltaToSessionBestLap_DD"
+
+  /// Delta time for session last lap is valid.
+  static let LapDeltaToSessionLastlLap_OK = "LapDeltaToSessionLastlLap_OK"
+
+  /// Delta time for session best lap.
+  static let LapDeltaToSessionBestLap = "LapDeltaToSessionBestLap"
+
+  /// Session number.
+  static let SessionNum = "SessionNum"
+
+  /// Rate of change of delta time for session last lap.
+  static let LapDeltaToSessionLastlLap_DD = "LapDeltaToSessionLastlLap_DD"
+
+}
+
+// MARK: - Player
+
+public extension Channels.Player {
+
+  /// Players carIdx.
+  static let PlayerCarIdx = "PlayerCarIdx"
+
+  /// Teams current drivers incident count for this session.
+  static let PlayerCarDriverIncidentCount = "PlayerCarDriverIncidentCount"
+
+  /// Players team incident count for this session.
+  static let PlayerCarTeamIncidentCount = "PlayerCarTeamIncidentCount"
+
+  /// Players position in race.
+  static let PlayerCarPosition = "PlayerCarPosition"
+
+  /// Players car track surface type.
+  static let PlayerTrackSurface = "PlayerTrackSurface"
+
+  /// Players car track surface material type.
+  static let PlayerTrackSurfaceMaterial = "PlayerTrackSurfaceMaterial"
+
+  /// Players own incident count for this session.
+  static let PlayerCarMyIncidentCount = "PlayerCarMyIncidentCount"
+
+  /// Players class position in race.
+  static let PlayerCarClassPosition = "PlayerCarClassPosition"
+
+  /// Driver activated flag.
+  static let DriverMarker = "DriverMarker"
+
+}
+
+// MARK: - Input
+
+public extension Channels.Input {
+
+  /// Steering wheel angle.
+  static let SteeringWheelAngle = "SteeringWheelAngle"
+
+  /// Force feedback % max torque on steering shaft signed.
+  static let SteeringWheelPctTorqueSign = "SteeringWheelPctTorqueSign"
+
+  /// Raw throttle input 0=off throttle to 1=full throttle.
+  static let ThrottleRaw = "ThrottleRaw"
+
+  /// Force feedback % max torque on steering shaft unsigned.
+  static let SteeringWheelPctTorque = "SteeringWheelPctTorque"
+
+  /// Steering wheel max angle.
+  static let SteeringWheelAngleMax = "SteeringWheelAngleMax"
+
+  /// Output torque on steering shaft.
+  static let SteeringWheelTorque = "SteeringWheelTorque"
+
+  /// Force feedback % max damping.
+  static let SteeringWheelPctDamper = "SteeringWheelPctDamper"
+
+  /// 0=disengaged to 1=fully engaged.
+  static let Clutch = "Clutch"
+
+  /// In car throttle shape adjustment.
+  static let dcThrottleShape = "dcThrottleShape"
+
+  /// 0=off throttle to 1=full throttle.
+  static let Throttle = "Throttle"
+
+  /// Force feedback % max torque on steering shaft signed stops.
+  static let SteeringWheelPctTorqueSignStops = "SteeringWheelPctTorqueSignStops"
+
 }
 
 // MARK: - Unsure
 
-private struct Unsure {
+public extension Channels.Unsure {
+
+  /// Latitude in decimal degrees.
+  static let Lat = "Lat"
+
+  /// DEPRECATED use DriverCarSLBlinkRPM instead.
+  static let ShiftIndicatorPct = "ShiftIndicatorPct"
+
+  /// Push to pass button state.
+  static let PushToPass = "PushToPass"
+
+  /// Longitude in decimal degrees.
+  static let Lon = "Lon"
+
+  /// 1=Car on track physics running.
+  static let IsOnTrackCar = "IsOnTrackCar"
+
+  /// Indicate action the reset key will take 0 enter 1 exit 2 reset.
+  static let EnterExitReset = "EnterExitReset"
+
+  /// 1=Car on track physics running with player in car.
+  static let IsOnTrack = "IsOnTrack"
+
+  /// Friction torque applied to gears when shifting or grinding.
+  static let ShiftPowerPct = "ShiftPowerPct"
+
+  /// -1=reverse, 0=neutral, 1..n=current gear.
+  static let Gear = "Gear"
+
+  /// In car traction control adjustment.
+  static let dcTractionControl = "dcTractionControl"
+
+  /// Altitude in meters.
   static let Alt = "Alt"
-  static let SteeringWheelTorque = "SteeringWheelTorque"
-  static let SteeringWheelPctDamper = "SteeringWheelPctDamper"
-  static let SteeringWheelPctTorqueSignStops = "SteeringWheelPctTorqueSignStops"
-  
+
 }
 
 // MIT License:

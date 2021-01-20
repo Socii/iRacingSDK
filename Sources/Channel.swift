@@ -15,7 +15,7 @@ public struct Channel {
   private let header: Channel.Header
   
   /// Channel samples.
-  var samples: [IRacingDataType]! {
+  var samples: [IRacingDataTypeRepresentable]! {
     didSet {
       logln(ByteCountFormatter.mb
         .string(fromByteCount: Int64(samples.count)))
@@ -42,7 +42,7 @@ extension Channel {
   }
   
   /// Returns the data type of the channel.
-  var dataType: DataType {
+  var dataType: IRacingDataType {
     return header.dataType
   }
   
@@ -65,7 +65,7 @@ extension Channel {
   ///
   /// - Parameter at: The sample position.
   ///
-  public func sample(at: Int) -> IRacingDataType {
+  public func sample(at: Int) -> IRacingDataTypeRepresentable {
        
     return samples[at]
   }
@@ -94,7 +94,7 @@ extension Channel {
   struct Header {
 
     /// Channel data type.
-    let dataType: DataType
+    let dataType: IRacingDataType
     
     /// Channel name.
     let name: String
@@ -124,7 +124,7 @@ extension Channel {
       let type = data.slice(at: 0) as Int32
       
       // Populate properties from the data.
-      dataType = DataType(rawValue: type)!
+      dataType = IRacingDataType(rawValue: type)!
       
       offset = UInt64(data.slice(at: 4) as Int32)
       

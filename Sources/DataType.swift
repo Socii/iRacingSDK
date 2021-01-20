@@ -10,7 +10,7 @@ import Foundation
 /// An enum containing the data types used in
 /// the iRacing IBT file.
 ///
-enum DataType: Int32 {
+enum IRacingDataType: Int32 {
     
   case IRChar
   case IRBool
@@ -32,7 +32,7 @@ enum DataType: Int32 {
   ///
   /// - Parameter data: The data.
   ///
-  func value(from data: Data) -> IRacingDataType {
+  func value(from data: Data) -> IRacingDataTypeRepresentable {
     
     switch self {
       
@@ -91,7 +91,7 @@ enum DataType: Int32 {
 
 // MARK: - Custom String Convertable
 
-extension DataType: CustomStringConvertible {
+extension IRacingDataType: CustomStringConvertible {
   
   public var description: String {
     switch self {
@@ -107,14 +107,14 @@ extension DataType: CustomStringConvertible {
 
 // MARK: - Protocol
 
-public protocol IRacingDataType { }
+public protocol IRacingDataTypeRepresentable { }
 
-extension String: IRacingDataType { }
-extension Int8: IRacingDataType { }
-extension Int32: IRacingDataType { }
-extension UInt32: IRacingDataType { }
-extension Float: IRacingDataType { }
-extension Double: IRacingDataType { }
+extension String: IRacingDataTypeRepresentable { }
+extension Int8: IRacingDataTypeRepresentable { }
+extension Int32: IRacingDataTypeRepresentable { }
+extension UInt32: IRacingDataTypeRepresentable { }
+extension Float: IRacingDataTypeRepresentable { }
+extension Double: IRacingDataTypeRepresentable { }
 
 // MIT License:
 

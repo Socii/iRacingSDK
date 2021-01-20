@@ -111,7 +111,7 @@ private extension Telemetry {
   private func populate(channel: inout Channel) {
     
     // Create an empty array.
-    var samples = [IRacingDataType]()
+    var samples = [IRacingDataTypeRepresentable]()
     
     // Set the cursor to the beginning
     // of the Channel data.
