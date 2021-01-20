@@ -92,13 +92,15 @@ extension IBT {
   ///
   static func open(url: URL) -> IBTinit? {
     
-    // Make sure we have a file and it has an ".ibt" extension, else fail.
+    // Make sure we have a file and it
+    // has an ".ibt" extension, else fail.
     guard url.isFileURL && url.pathExtension == "ibt" else {
       logln("\(url) is not an .ibt file.", level: .error)
       return nil
     }
     
-    // Make sure we can open a file handle for reading, else fail.
+    // Make sure we can open a file handle for reading,
+    // else fail.
     guard let fileHandle = FileHandle(forReadingAtPath: url.path) else {
       logln("Unable to create a file handle for \(url)", level: .error)
       return nil
@@ -190,11 +192,7 @@ extension IBT {
     ///   The size of the data sequence must be 32 bytes.
     ///
     init(data: Data) {
-      
-      // Check the data size is correct else fail.
-      guard data.count == IBT.Header.length
-        else { fatalError("Data size is incorrect. Expected \(IBT.Header.length), received \(data.count)") }
-      
+            
       // Populate the properties.
       startDate = Double(data.slice(at: 0) as Int32)
       
