@@ -53,7 +53,7 @@ extension Channel {
   
   /// Returns the number of samples in the channel.
   var sampleCount: Int {
-    return samples.count / dataType.length
+    return samples.count
   }
   
   /// The length of each sample in bytes.
@@ -78,7 +78,7 @@ extension Channel: CustomStringConvertible {
   public var description: String {
     var string = ""
 //    string.append("\(header.name)\n")
-    string.append("\(header.description)\n")
+    string.append("\(header.description)")
 //    string.append("\(header.dataType)\n")
 //    string.append("\(header.unit)\n")
     return string
