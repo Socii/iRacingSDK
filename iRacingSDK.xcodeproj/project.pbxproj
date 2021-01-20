@@ -10,6 +10,16 @@
 		3A81B2AB25B4B8FD00272889 /* iRacingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81B2A125B4B8FD00272889 /* iRacingSDK.framework */; };
 		3A81B2B025B4B8FD00272889 /* iRacingSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2AF25B4B8FD00272889 /* iRacingSDKTests.swift */; };
 		3A81B2B225B4B8FD00272889 /* iRacingSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A81B2A425B4B8FD00272889 /* iRacingSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A81B2BE25B4BA0A00272889 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2BD25B4BA0A00272889 /* Telemetry.swift */; };
+		3A81B2C025B4BA2E00272889 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2BF25B4BA2E00272889 /* Channel.swift */; };
+		3A81B2C225B4BA3D00272889 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2C125B4BA3D00272889 /* DataType.swift */; };
+		3A81B2C425B4BA4600272889 /* IBT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2C325B4BA4600272889 /* IBT.swift */; };
+		3A81B2C825B4BA5500272889 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2C725B4BA5500272889 /* Session.swift */; };
+		3A81B2CA25B4BA5D00272889 /* YAML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2C925B4BA5D00272889 /* YAML.swift */; };
+		3A81B2CC25B4BA6B00272889 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2CB25B4BA6B00272889 /* Debug.swift */; };
+		3A81B2CF25B4BB8A00272889 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2CE25B4BB8A00272889 /* Data+.swift */; };
+		3A81B2D125B4BB9200272889 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2D025B4BB9200272889 /* String+.swift */; };
+		3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE916625B5040900DA1DF7 /* Channels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +39,16 @@
 		3A81B2AA25B4B8FD00272889 /* iRacingSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRacingSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A81B2AF25B4B8FD00272889 /* iRacingSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iRacingSDKTests.swift; sourceTree = "<group>"; };
 		3A81B2B125B4B8FD00272889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A81B2BD25B4BA0A00272889 /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
+		3A81B2BF25B4BA2E00272889 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		3A81B2C125B4BA3D00272889 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
+		3A81B2C325B4BA4600272889 /* IBT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBT.swift; sourceTree = "<group>"; };
+		3A81B2C725B4BA5500272889 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		3A81B2C925B4BA5D00272889 /* YAML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAML.swift; sourceTree = "<group>"; };
+		3A81B2CB25B4BA6B00272889 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		3A81B2CE25B4BB8A00272889 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
+		3A81B2D025B4BB9200272889 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		3AAE916625B5040900DA1DF7 /* Channels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +73,9 @@
 		3A81B29725B4B8FD00272889 = {
 			isa = PBXGroup;
 			children = (
-				3A81B2A325B4B8FD00272889 /* iRacingSDK */,
+				3A81B2CD25B4BB7600272889 /* Foundation+ */,
+				3A81B2BB25B4B91F00272889 /* Sources */,
+				3A81B2A325B4B8FD00272889 /* Resources */,
 				3A81B2AE25B4B8FD00272889 /* iRacingSDKTests */,
 				3A81B2A225B4B8FD00272889 /* Products */,
 			);
@@ -68,13 +90,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3A81B2A325B4B8FD00272889 /* iRacingSDK */ = {
+		3A81B2A325B4B8FD00272889 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A81B2A425B4B8FD00272889 /* iRacingSDK.h */,
 				3A81B2A525B4B8FD00272889 /* Info.plist */,
 			);
-			path = iRacingSDK;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		3A81B2AE25B4B8FD00272889 /* iRacingSDKTests */ = {
@@ -84,6 +105,31 @@
 				3A81B2B125B4B8FD00272889 /* Info.plist */,
 			);
 			path = iRacingSDKTests;
+			sourceTree = "<group>";
+		};
+		3A81B2BB25B4B91F00272889 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3A81B2A425B4B8FD00272889 /* iRacingSDK.h */,
+				3A81B2BD25B4BA0A00272889 /* Telemetry.swift */,
+				3A81B2C325B4BA4600272889 /* IBT.swift */,
+				3A81B2C725B4BA5500272889 /* Session.swift */,
+				3AAE916625B5040900DA1DF7 /* Channels.swift */,
+				3A81B2BF25B4BA2E00272889 /* Channel.swift */,
+				3A81B2C125B4BA3D00272889 /* DataType.swift */,
+				3A81B2C925B4BA5D00272889 /* YAML.swift */,
+				3A81B2CB25B4BA6B00272889 /* Debug.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3A81B2CD25B4BB7600272889 /* Foundation+ */ = {
+			isa = PBXGroup;
+			children = (
+				3A81B2CE25B4BB8A00272889 /* Data+.swift */,
+				3A81B2D025B4BB9200272889 /* String+.swift */,
+			);
+			path = "Foundation+";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +194,7 @@
 				TargetAttributes = {
 					3A81B2A025B4B8FD00272889 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 					3A81B2A925B4B8FD00272889 = {
 						CreatedOnToolsVersion = 11.3;
@@ -195,6 +242,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A81B2CF25B4BB8A00272889 /* Data+.swift in Sources */,
+				3A81B2BE25B4BA0A00272889 /* Telemetry.swift in Sources */,
+				3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */,
+				3A81B2D125B4BB9200272889 /* String+.swift in Sources */,
+				3A81B2C225B4BA3D00272889 /* DataType.swift in Sources */,
+				3A81B2CA25B4BA5D00272889 /* YAML.swift in Sources */,
+				3A81B2C825B4BA5500272889 /* Session.swift in Sources */,
+				3A81B2C025B4BA2E00272889 /* Channel.swift in Sources */,
+				3A81B2CC25B4BA6B00272889 /* Debug.swift in Sources */,
+				3A81B2C425B4BA4600272889 /* IBT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -325,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -339,6 +396,7 @@
 		3A81B2B625B4B8FD00272889 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -346,16 +404,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = iRacingSDK/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Socii.iRacingSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +424,7 @@
 		3A81B2B725B4B8FD00272889 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -370,13 +432,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = iRacingSDK/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Socii.iRacingSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -387,6 +451,7 @@
 		3A81B2B925B4B8FD00272889 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T2QBYJ23J6;
@@ -405,6 +470,7 @@
 		3A81B2BA25B4B8FD00272889 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T2QBYJ23J6;
