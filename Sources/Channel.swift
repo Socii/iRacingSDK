@@ -15,7 +15,7 @@ public struct Channel {
   private let header: Channel.Header
   
   /// Channel samples.
-  var samples: [IRacingDataTypeRepresentable]! {
+  internal(set) public var samples: [IRacingDataTypeRepresentable]! {
     didSet {
       logln(ByteCountFormatter.mb
         .string(fromByteCount: Int64(samples.count)))
@@ -60,15 +60,6 @@ extension Channel {
   var sampleLength: Int {
     return dataType.length
   }
-  
-  /// Returns a sample at the given position.
-  ///
-  /// - Parameter at: The sample position.
-  ///
-  public func sample(at: Int) -> IRacingDataTypeRepresentable {
-       
-    return samples[at]
-  }
 }
 
 // MARK: - Custom String Convertable
@@ -76,12 +67,7 @@ extension Channel {
 extension Channel: CustomStringConvertible {
   
   public var description: String {
-    var string = ""
-//    string.append("\(header.name)\n")
-    string.append("\(header.description)")
-//    string.append("\(header.dataType)\n")
-//    string.append("\(header.unit)\n")
-    return string
+    return header.description
   }
 }
 
