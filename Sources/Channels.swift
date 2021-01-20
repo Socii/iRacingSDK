@@ -17,7 +17,7 @@ public struct Channels {
   /// Strings for suspension channels.
   public enum Suspension { }
   
-  /// Strings for brackes channels.
+  /// Strings for brakes channels.
   public enum Brakes { }
   
   /// Strings for engine channels.
@@ -29,13 +29,13 @@ public struct Channels {
   /// Strings for laps channels.
   public enum Laps { }
   
-  /// Strings for input channels.
+  /// Strings for user input channels.
   public enum Input { }
   
   /// Strings for weather channels.
   public enum Weather { }
   
-  /// Strings for vehicle channels.
+  /// Strings for vehicle orientation and forces channels.
   public enum Vehicle { }
 
   /// Strings for pit crew channels.
@@ -47,7 +47,31 @@ public struct Channels {
   /// Strings for player channels.
   public enum Player { }
   
-  public enum Unsure { }
+  /// String for in-car adjustments.
+  public enum InCar { }
+  
+//  public enum Unsure { }
+}
+
+// MARK: - In Car Adjustments
+
+public extension Channels.InCar {
+  
+  /// In car traction control adjustment.
+  static let dcTractionControl = "dcTractionControl"
+
+  /// In car fuel mixture adjustment.
+  static let dcFuelMixture = "dcFuelMixture"
+  
+  /// In car abs adjustment.
+  static let dcABS = "dcABS"
+  
+  /// In car brake bias adjustment.
+  static let dcBrakeBias = "dcBrakeBias"
+  
+  /// In car throttle shape adjustment.
+  static let dcThrottleShape = "dcThrottleShape"
+
 }
 
 // MARK: - Weather
@@ -65,9 +89,6 @@ public extension Channels.Weather {
 
   /// Weather type (0=constant, 1=dynamic).
   static let WeatherType = "WeatherType"
-
-  /// Temperature of track measured by crew around track.
-  static let TrackTempCrew = "TrackTempCrew"
 
   /// Density of air at start/finish line.
   static let AirDensity = "AirDensity"
@@ -93,7 +114,10 @@ public extension Channels.Weather {
 // MARK: - Vehicle
 
 public extension Channels.Vehicle {
-
+  
+  /// Altitude in meters.
+  static let Alt = "Alt"
+  
   /// Vertical acceleration (including gravity).
   static let VertAccel = "VertAccel"
 
@@ -132,12 +156,24 @@ public extension Channels.Vehicle {
 
   /// Yaw orientation relative to north.
   static let YawNorth = "YawNorth"
+  
+  /// Pitch orientation.
+  static let Pitch = "Pitch"
+  
+  /// Latitude in decimal degrees.
+  static let Lat = "Lat"
+  
+  /// Longitude in decimal degrees.
+  static let Lon = "Lon"
 
 }
 
 // MARK: - Engine
 
 public extension Channels.Engine {
+  
+  /// DEPRECATED use DriverCarSLBlinkRPM instead.
+  static let ShiftIndicatorPct = "ShiftIndicatorPct"
 
   /// Engine voltage.
   static let Voltage = "Voltage"
@@ -163,9 +199,6 @@ public extension Channels.Engine {
   /// Engine fuel used instantaneous.
   static let FuelUsePerHour = "FuelUsePerHour"
 
-  /// Pit service fuel add amount.
-  static let PitSvFuel = "PitSvFuel"
-
   /// Engine oil temperature.
   static let OilTemp = "OilTemp"
 
@@ -175,17 +208,17 @@ public extension Channels.Engine {
   /// Percent fuel remaining.
   static let FuelLevelPct = "FuelLevelPct"
 
-  /// Engine rpm.
+  /// Engine RPM.
   static let RPM = "RPM"
-
-  /// In car fuel mixture adjustment.
-  static let dcFuelMixture = "dcFuelMixture"
 
   /// RPM of shifter grinding noise.
   static let ShiftGrindRPM = "ShiftGrindRPM"
 
   /// Engine fuel pressure.
   static let FuelPress = "FuelPress"
+  
+  /// Friction torque applied to gears when shifting or grinding.
+  static let ShiftPowerPct = "ShiftPowerPct"
 
 }
 
@@ -258,30 +291,21 @@ public extension Channels.Brakes {
   /// 0=brake released to 1=max pedal force.
   static let Brake = "Brake"
 
-  /// Raw brake input 0=brake released to 1=max pedal force.
-  static let BrakeRaw = "BrakeRaw"
-
-  /// In car abs adjustment.
-  static let dcABS = "dcABS"
-
   /// RR brake line pressure.
   static let RRbrakeLinePress = "RRbrakeLinePress"
 
   /// LR brake line pressure.
   static let LRbrakeLinePress = "LRbrakeLinePress"
 
-  /// In car brake bias adjustment.
-  static let dcBrakeBias = "dcBrakeBias"
-
-  /// Raw handbrake input 0=handbrake released to 1=max force.
-  static let HandbrakeRaw = "HandbrakeRaw"
-
 }
 
 // MARK: - PitCrew
 
 public extension Channels.PitCrew {
-
+  
+  /// Temperature of track measured by crew around track.
+  static let TrackTempCrew = "TrackTempCrew"
+  
   /// Time left for optional repairs if repairs are active.
   static let PitOptRepairLeft = "PitOptRepairLeft"
 
@@ -294,9 +318,6 @@ public extension Channels.PitCrew {
   /// Time left for mandatory pit repairs if repairs are active.
   static let PitRepairLeft = "PitRepairLeft"
 
-  /// Pitch orientation.
-  static let Pitch = "Pitch"
-
   /// Is the player car on pit road between the cones.
   static let OnPitRoad = "OnPitRoad"
 
@@ -308,12 +329,42 @@ public extension Channels.PitCrew {
 
   /// Pit service left front tire pressure.
   static let PitSvLFP = "PitSvLFP"
+  
+  /// Pit service fuel add amount.
+  static let PitSvFuel = "PitSvFuel"
 
 }
 
 // MARK: - Laps
 
 public extension Channels.Laps {
+  
+  /// Rate of change of delta time for session last lap.
+  static let LapDeltaToSessionLastlLap_DD = "LapDeltaToSessionLastlLap_DD"
+
+  /// Rate of change of delta time for session best lap.
+  static let LapDeltaToSessionBestLap_DD = "LapDeltaToSessionBestLap_DD"
+
+  /// Delta time for session last lap is valid.
+  static let LapDeltaToSessionLastlLap_OK = "LapDeltaToSessionLastlLap_OK"
+
+  /// Delta time for session best lap.
+  static let LapDeltaToSessionBestLap = "LapDeltaToSessionBestLap"
+
+  /// Delta time for session best lap is valid.
+  static let LapDeltaToSessionBestLap_OK = "LapDeltaToSessionBestLap_OK"
+
+  /// Delta time for session optimal lap.
+  static let LapDeltaToSessionOptimalLap = "LapDeltaToSessionOptimalLap"
+
+  /// Rate of change of delta time for session optimal lap.
+  static let LapDeltaToSessionOptimalLap_DD = "LapDeltaToSessionOptimalLap_DD"
+
+  /// Delta time for session optimal lap is valid.
+  static let LapDeltaToSessionOptimalLap_OK = "LapDeltaToSessionOptimalLap_OK"
+
+  /// Delta time for session last lap.
+  static let LapDeltaToSessionLastlLap = "LapDeltaToSessionLastlLap"
 
   /// Player best N average lap time.
   static let LapBestNLapTime = "LapBestNLapTime"
@@ -537,20 +588,11 @@ public extension Channels.Tyres {
 
 public extension Channels.Session {
 
-  /// Delta time for session optimal lap is valid.
-  static let LapDeltaToSessionOptimalLap_OK = "LapDeltaToSessionOptimalLap_OK"
-
-  /// Delta time for session last lap.
-  static let LapDeltaToSessionLastlLap = "LapDeltaToSessionLastlLap"
-
   /// Session ID.
   static let SessionUniqueID = "SessionUniqueID"
 
   /// Current update number.
   static let SessionTick = "SessionTick"
-
-  /// Rate of change of delta time for session optimal lap.
-  static let LapDeltaToSessionOptimalLap_DD = "LapDeltaToSessionOptimalLap_DD"
 
   /// Old laps left till session ends use SessionLapsRemainEx.
   static let SessionLapsRemain = "SessionLapsRemain"
@@ -558,14 +600,8 @@ public extension Channels.Session {
   /// Session state.
   static let SessionState = "SessionState"
 
-  /// Delta time for session optimal lap.
-  static let LapDeltaToSessionOptimalLap = "LapDeltaToSessionOptimalLap"
-
   /// New improved laps left till session ends.
   static let SessionLapsRemainEx = "SessionLapsRemainEx"
-
-  /// Delta time for session best lap is valid.
-  static let LapDeltaToSessionBestLap_OK = "LapDeltaToSessionBestLap_OK"
 
   /// Seconds since session start.
   static let SessionTime = "SessionTime"
@@ -573,20 +609,8 @@ public extension Channels.Session {
   /// Seconds left till session ends.
   static let SessionTimeRemain = "SessionTimeRemain"
 
-  /// Rate of change of delta time for session best lap.
-  static let LapDeltaToSessionBestLap_DD = "LapDeltaToSessionBestLap_DD"
-
-  /// Delta time for session last lap is valid.
-  static let LapDeltaToSessionLastlLap_OK = "LapDeltaToSessionLastlLap_OK"
-
-  /// Delta time for session best lap.
-  static let LapDeltaToSessionBestLap = "LapDeltaToSessionBestLap"
-
   /// Session number.
   static let SessionNum = "SessionNum"
-
-  /// Rate of change of delta time for session last lap.
-  static let LapDeltaToSessionLastlLap_DD = "LapDeltaToSessionLastlLap_DD"
 
 }
 
@@ -620,12 +644,24 @@ public extension Channels.Player {
 
   /// Driver activated flag.
   static let DriverMarker = "DriverMarker"
+  
+  /// 1=Car on track physics running.
+  static let IsOnTrackCar = "IsOnTrackCar"
+
+  /// Indicate action the reset key will take 0 enter 1 exit 2 reset.
+  static let EnterExitReset = "EnterExitReset"
+
+  /// 1=Car on track physics running with player in car.
+  static let IsOnTrack = "IsOnTrack"
 
 }
 
 // MARK: - Input
 
 public extension Channels.Input {
+  
+  /// Push to pass button state.
+  static let PushToPass = "PushToPass"
 
   /// Steering wheel angle.
   static let SteeringWheelAngle = "SteeringWheelAngle"
@@ -651,53 +687,20 @@ public extension Channels.Input {
   /// 0=disengaged to 1=fully engaged.
   static let Clutch = "Clutch"
 
-  /// In car throttle shape adjustment.
-  static let dcThrottleShape = "dcThrottleShape"
-
   /// 0=off throttle to 1=full throttle.
   static let Throttle = "Throttle"
 
   /// Force feedback % max torque on steering shaft signed stops.
   static let SteeringWheelPctTorqueSignStops = "SteeringWheelPctTorqueSignStops"
-
-}
-
-// MARK: - Unsure
-
-public extension Channels.Unsure {
-
-  /// Latitude in decimal degrees.
-  static let Lat = "Lat"
-
-  /// DEPRECATED use DriverCarSLBlinkRPM instead.
-  static let ShiftIndicatorPct = "ShiftIndicatorPct"
-
-  /// Push to pass button state.
-  static let PushToPass = "PushToPass"
-
-  /// Longitude in decimal degrees.
-  static let Lon = "Lon"
-
-  /// 1=Car on track physics running.
-  static let IsOnTrackCar = "IsOnTrackCar"
-
-  /// Indicate action the reset key will take 0 enter 1 exit 2 reset.
-  static let EnterExitReset = "EnterExitReset"
-
-  /// 1=Car on track physics running with player in car.
-  static let IsOnTrack = "IsOnTrack"
-
-  /// Friction torque applied to gears when shifting or grinding.
-  static let ShiftPowerPct = "ShiftPowerPct"
-
+  
+  /// Raw handbrake input 0=handbrake released to 1=max force.
+  static let HandbrakeRaw = "HandbrakeRaw"
+  
+  /// Raw brake input 0=brake released to 1=max pedal force.
+  static let BrakeRaw = "BrakeRaw"
+  
   /// -1=reverse, 0=neutral, 1..n=current gear.
   static let Gear = "Gear"
-
-  /// In car traction control adjustment.
-  static let dcTractionControl = "dcTractionControl"
-
-  /// Altitude in meters.
-  static let Alt = "Alt"
 
 }
 
