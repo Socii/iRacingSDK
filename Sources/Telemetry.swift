@@ -18,7 +18,7 @@ public struct Telemetry {
   private let ibt: IBT
   
   /// A dictionary containing all available telemetry channels.
-  private let channels: [String: Channel]
+  let channels: [String: Channel]
     
   /// Session Info.
   private let session: Session
