@@ -20,6 +20,7 @@
 		3A81B2CF25B4BB8A00272889 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2CE25B4BB8A00272889 /* Data+.swift */; };
 		3A81B2D125B4BB9200272889 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2D025B4BB9200272889 /* String+.swift */; };
 		3AA2CAF125B8C19E003D6B3F /* ChannelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */; };
+		3AA2CAF325B8F13C003D6B3F /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA2CAF225B8F13C003D6B3F /* Units.swift */; };
 		3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE916625B5040900DA1DF7 /* Channels.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		3A81B2CE25B4BB8A00272889 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		3A81B2D025B4BB9200272889 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNames.swift; sourceTree = "<group>"; };
+		3AA2CAF225B8F13C003D6B3F /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		3AAE916625B5040900DA1DF7 /* Channels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				3AAE916625B5040900DA1DF7 /* Channels.swift */,
 				3A81B2BF25B4BA2E00272889 /* Channel.swift */,
 				3A81B2C125B4BA3D00272889 /* DataType.swift */,
+				3AA2CAF225B8F13C003D6B3F /* Units.swift */,
 				3A81B2C925B4BA5D00272889 /* YAML.swift */,
 			);
 			path = Sources;
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A81B2CF25B4BB8A00272889 /* Data+.swift in Sources */,
+				3AA2CAF325B8F13C003D6B3F /* Units.swift in Sources */,
 				3A81B2BE25B4BA0A00272889 /* Telemetry.swift in Sources */,
 				3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */,
 				3A81B2D125B4BB9200272889 /* String+.swift in Sources */,
@@ -411,6 +415,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T2QBYJ23J6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -439,6 +444,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T2QBYJ23J6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
