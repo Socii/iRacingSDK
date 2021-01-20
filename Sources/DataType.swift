@@ -28,6 +28,10 @@ enum DataType: Int32 {
     }
   }
   
+  /// Returns an iRacing data type from data.
+  ///
+  /// - Parameter data: The data.
+  ///
   func value(from data: Data) -> IRacingDataType {
     
     switch self {
