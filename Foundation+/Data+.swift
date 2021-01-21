@@ -16,7 +16,7 @@ extension Data {
   ///
   func slice<T: FixedWidthInteger>(at index: Data.Index) -> T {
     
-    let number: T = subdata(in: index..<index + MemoryLayout<T>.size).withUnsafeBytes( { $0.pointee } )
+    let number: T = subdata(in: index..<index + MemoryLayout<T>.size).withUnsafeBytes( { $0.load(as: T.self) } )
     
     return number.littleEndian
   }
@@ -24,9 +24,12 @@ extension Data {
 
 // MARK: - Data Convertable Protocol
 
-// Protocol to allow conversion of Data to Type.
-// https://stackoverflow.com/questions/38023838/round-trip-swift-number-types-to-from-data
+/**
+ https://stackoverflow.com/questions/38023838/round-trip-swift-number-types-to-from-data
+*/
 
+/// Protocol to allow conversion of Data to Type.
+///
 protocol DataConvertible {
   init?(data: Data)
   var data: Data { get }
@@ -43,7 +46,7 @@ extension DataConvertible {
     guard data.count == MemoryLayout<Self>.size
       else { return nil }
     
-    self = data.withUnsafeBytes { $0.pointee }
+    self = data.withUnsafeBytes { $0.load(as: Self.self) }
   }
   
   /// Returns a data representation of the value.
