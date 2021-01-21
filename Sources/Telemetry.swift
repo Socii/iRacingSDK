@@ -23,6 +23,9 @@ public struct Telemetry {
   /// Session Info.
   private let session: Session
   
+  /// Session date.
+  public let date: Date
+  
   /// Attempt to create a `Telemetry` instance from a `URL`.
   ///
   /// - Parameter url: the URL of the telemetry.
@@ -40,6 +43,21 @@ public struct Telemetry {
     ibt = ibtinit.ibt
     session = ibtinit.session
     channels = ibtinit.channels
+    
+    // Create the session date from the url.
+    let dateTime = url
+      .deletingPathExtension()
+      .absoluteString
+      .suffix(19)
+      .replacingOccurrences(of: "%20", with: ":")
+    
+    // Attempt to convert to a Date object, else fail.
+    guard let date = DateFormatter.iRacing.date(from: dateTime) else {
+      logln("Unable to get date from url.", level: .error)
+      return nil
+    }
+    
+    self.date = date
   }
 }
 
@@ -135,6 +153,16 @@ private extension Telemetry {
     // Add the sample data to the channel.
     channel.samples = samples
   }
+}
+
+private extension DateFormatter {
+  
+  static let iRacing: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yy-MM-dd:HH-mm-ss"
+    formatter.timeZone = TimeZone(secondsFromGMT: 0)
+    return formatter
+  }()
 }
 
 // MARK: - Header
