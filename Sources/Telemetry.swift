@@ -21,9 +21,9 @@ public struct Telemetry {
   let channels: [String: Channel]
     
   /// Session Info.
-  private let session: Session
+  private let weekend: Weekend
   
-  /// Session date.
+  /// Telemetry start date.
   public let date: Date
   
   /// Attempt to create a `Telemetry` instance from a `URL`.
@@ -41,7 +41,7 @@ public struct Telemetry {
     // Store the returned properties.
     header = ibtinit.header
     ibt = ibtinit.ibt
-    session = ibtinit.session
+    weekend = ibtinit.weekend
     channels = ibtinit.channels
     
     // Create the session date from the url.
@@ -66,13 +66,26 @@ public struct Telemetry {
 public extension Telemetry {
   
   /// Returns a dictionary containing session information.
-  var info: [String: String] {
-    return session.info
+  var info: [String : String] {
+    return weekend.info
   }
   
   /// Returns a dictionary containing session options.
-  var options: [String: String] {
-    return session.options
+  var options: [String : String] {
+    return weekend.options
+  }
+  
+  var driver: [String : String] {
+    
+    guard let value = weekend.driverInfo["DriverCarIdx"] else {
+      preconditionFailure("Unable to get DriverCarIdx")
+    }
+        
+    guard let idx = Int(value), idx < weekend.drivers.count else {
+      preconditionFailure("Unable to convert \(value) to Int.")
+    }
+    
+    return weekend.drivers[idx]
   }
   
   /// Returns a telemetry channel with the given name.
@@ -102,6 +115,12 @@ public extension Telemetry {
     // Return the channel.
     return channel
   }
+  
+  #if DEBUG
+  var yaml: String {
+    return weekend.yaml
+  }
+  #endif
 }
 
 // MARK: - Custom String Convertable
@@ -113,7 +132,24 @@ extension Telemetry: CustomStringConvertible {
 //    print("\(String(describing: session.options))\n")
     
     var string = ""
-    string.append("\(session.info["TrackDisplayName"]!) - \(session.info["TrackConfigName"]!)\n")
+    
+    string.append("\(DateFormatter.medium.string(from: date))\n")
+    
+    string.append("\(info["TrackDisplayName"]!)")
+
+    if let config = info["TrackConfigName"], config != "" {
+      string.append(" - \(config)")
+    }
+    string.append("\n")
+    
+    if let screenName = driver["CarScreenName"] {
+      string.append("\(screenName)\n")
+    }
+    
+    if let userName = driver["UserName"] {
+      string.append("\(userName)\n")
+    }
+    
     return string
   }
 }
@@ -163,6 +199,13 @@ private extension DateFormatter {
     formatter.timeZone = TimeZone(secondsFromGMT: 0)
     return formatter
   }()
+  
+  static var medium: DateFormatter {
+    let formatter = DateFormatter()
+    formatter.calendar = .autoupdatingCurrent
+    formatter.dateStyle = .medium
+    return formatter
+  }
 }
 
 // MARK: - Header
