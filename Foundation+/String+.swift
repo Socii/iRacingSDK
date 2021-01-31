@@ -12,7 +12,7 @@ import Foundation
 // by Costas Menico from Dr Dobb's magazine, July 1989.
 // http://www.drdobbs.com/database/faster-string-searches/184408171
 
-extension String {
+public extension String {
   
   func index(of pattern: String, usingHorspoolImprovement: Bool = false) -> Index? {
     
