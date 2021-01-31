@@ -81,7 +81,7 @@ extension IBT {
   ///
   typealias IBTinit = (header: Telemetry.Header,
                        ibt: IBT,
-                       session: Session,
+                       weekend: Weekend,
                        channels: [String: Channel])
   
   /// Attempts to open a `URL` as an iRacing IBT file.
@@ -124,7 +124,7 @@ extension IBT {
     
     // Convert the data block to an ascii string for
     // the yaml parser, else fail.
-    guard let yamlString = String(data: data, encoding: .ascii) else {
+    guard var yamlString = String(data: data, encoding: .ascii) else {
       logln("Unable to convert Data to ascii.", level: .error)
       return nil
     }
@@ -138,7 +138,7 @@ extension IBT {
     
     // Attempt to create the Session struct from
     // the YAML string, else fail.
-    guard let session = Session(yaml: yamlString) else {
+    guard let weekend = Weekend(yaml: &yamlString) else {
       logln("Unable to create session.", level: .error)
       return nil
     }
@@ -158,7 +158,7 @@ extension IBT {
     }
     
     // Return.
-    return (telemetryHeader, ibt, session, channels)
+    return (telemetryHeader, ibt, weekend, channels)
   }
 }
 
