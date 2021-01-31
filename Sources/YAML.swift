@@ -5,19 +5,22 @@
 
 import Foundation
 
+enum YAMLError: Error {
+  case notAValidYAMLDocument(String)
+  case unableToGetIndex
+}
+
 /// A simple YAML parser based on the irsdk C++ code
 /// provided by iRacing.
 ///
-struct YAML {
+public struct YAML {
   
-  private enum YAMLParserError: Error {
-    case notAValidYAMLDocument(String)
-  }
+
 }
 
 // MARK: - Model
 
-extension YAML {
+public extension YAML {
   
   /// Check if the input string begins with "---"
   /// and ends with "..." to signify this is a YAML document.
