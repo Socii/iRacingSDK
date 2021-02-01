@@ -32,6 +32,13 @@ public struct Telemetry {
   ///
   public init?(url: URL) {
     
+    // Make sure we have a file and it
+    // has an ".ibt" extension, else fail.
+    guard url.isFileURL && url.pathExtension == "ibt" else {
+      logln("\(url) is not an .ibt file.", level: .error)
+      return nil
+    }
+    
     // Attempt to open the url as an IBT, else fail.
     guard let ibtinit = IBT.open(url: url)
       else { logln("Unable to create IBT from url: \(url).", level: .error)
@@ -75,17 +82,47 @@ public extension Telemetry {
     return weekend.options
   }
   
+  /// Returns a dictionary conataining driver information.
   var driver: [String : String] {
     
+    // FIXME: Precondition failures may not be relevant.
     guard let value = weekend.driverInfo["DriverCarIdx"] else {
       preconditionFailure("Unable to get DriverCarIdx")
     }
         
-    guard let idx = Int(value), idx < weekend.drivers.count else {
+    guard var idx = Int(value) else {
       preconditionFailure("Unable to convert \(value) to Int.")
     }
     
+    // FIXME: Sometimes the DriverCarIdx exceeds the count
+    //        of drivers. Quick fix below but not sure
+    //        if this is correct.
+    if idx > weekend.drivers.count {
+      idx = weekend.drivers.count - 1
+    }
+    
     return weekend.drivers[idx]
+  }
+  
+  /// Returns an array of dictionaries containing
+  /// driver information.
+  var drivers: [[String : String]] {
+    return weekend.drivers
+  }
+  
+  /// Returns the track name and configuration.
+  var trackNameFull: String {
+    var string = ""
+    string.append("\(info["TrackDisplayName"]!)")
+    if let config = info["TrackConfigName"], config != "" {
+      string.append(" - \(config)")
+    }
+    return string
+  }
+  
+  /// Returns the car name.
+  var carName: String {
+    return driver["CarScreenName"] ?? ""
   }
   
   /// Returns a telemetry channel with the given name.
@@ -116,6 +153,29 @@ public extension Telemetry {
     return channel
   }
   
+//  func channels(named strings: [String]) -> [Channel] {
+//    
+//    let notFound = strings.filter { channels[$0] == nil }
+//    precondition(notFound.isEmpty, "Channels named \"\(notFound)\" do not exist.")
+//    
+//    // Precondition: Check the channel name
+//    // exists in the dictionary.
+//    var passed = true
+//    var notFoundNames = [String]()
+//    for name in strings {
+//      if channels[name] == nil {
+//        passed = false
+//        notFoundNames.append(name)
+//      }
+//    }
+//    
+//    guard passed else {
+//      preconditionFailure("Channels \"\(notFoundNames)\" do not exist.")
+//    }
+//    
+//    return channels
+//  }
+  
   #if DEBUG
   var yaml: String {
     return weekend.yaml
@@ -128,28 +188,12 @@ public extension Telemetry {
 extension Telemetry: CustomStringConvertible {
   
   public var description: String {
-    
-//    print("\(String(describing: session.options))\n")
-    
+       
     var string = ""
-    
     string.append("\(DateFormatter.medium.string(from: date))\n")
-    
-    string.append("\(info["TrackDisplayName"]!)")
-
-    if let config = info["TrackConfigName"], config != "" {
-      string.append(" - \(config)")
-    }
-    string.append("\n")
-    
-    if let screenName = driver["CarScreenName"] {
-      string.append("\(screenName)\n")
-    }
-    
-    if let userName = driver["UserName"] {
-      string.append("\(userName)\n")
-    }
-    
+    string.append("\(trackNameFull)\n")
+    string.append("\(driver["CarScreenName"] ?? "")\n")
+    string.append("\(driver["UserName"] ?? "")\n")
     return string
   }
 }
@@ -158,9 +202,9 @@ extension Telemetry: CustomStringConvertible {
 
 private extension Telemetry {
     
-  /// Populates a Channel with sample data.
+  /// Populates a `Channel` with sample data.
   ///
-  /// - Parameter channel: The iRacing Channel.
+  /// - Parameter channel: The iRacing channel.
   ///
   private func populate(channel: inout Channel) {
     
@@ -189,6 +233,41 @@ private extension Telemetry {
     // Add the sample data to the channel.
     channel.samples = samples
   }
+  
+  /// Populates multiple `Channels` with sample data.
+  ///
+  /// - Parameter channels: The iRacing channels.
+  ///
+//  private func populate(channels: inout [Channel]) {
+//
+//    let sorted = channels.sort { $0.offset < $1.offset }
+//
+//
+//    // Create an empty array.
+//    var samples = [IRacingDataTypeRepresentable]()
+//
+//    // Set the cursor to the beginning
+//    // of the Channel data.
+//    var cursor = header.bufferOffset + channel.offset
+//
+//    // Read from the IBT file.
+//    let dataType = channel.dataType
+//    let length = dataType.length
+//    var hasSample = true
+//    while hasSample == true {
+//      ibt.seek(toFileOffset: cursor)
+//      let data = ibt.readData(ofLength: length)
+//      if data.count != length {
+//        hasSample = false
+//      } else {
+//        samples.append(dataType.value(from: data))
+//        cursor += header.bufferLength
+//      }
+//    }
+//
+//    // Add the sample data to the channel.
+//    channel.samples = samples
+//  }
 }
 
 private extension DateFormatter {
@@ -200,12 +279,12 @@ private extension DateFormatter {
     return formatter
   }()
   
-  static var medium: DateFormatter {
+  static let medium: DateFormatter = {
     let formatter = DateFormatter()
     formatter.calendar = .autoupdatingCurrent
     formatter.dateStyle = .medium
     return formatter
-  }
+  }()
 }
 
 // MARK: - Header

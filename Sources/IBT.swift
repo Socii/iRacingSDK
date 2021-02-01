@@ -92,13 +92,6 @@ extension IBT {
   ///
   static func open(url: URL) -> IBTinit? {
     
-    // Make sure we have a file and it
-    // has an ".ibt" extension, else fail.
-    guard url.isFileURL && url.pathExtension == "ibt" else {
-      logln("\(url) is not an .ibt file.", level: .error)
-      return nil
-    }
-    
     // Make sure we can open a file handle for reading,
     // else fail.
     guard let fileHandle = FileHandle(forReadingAtPath: url.path) else {
@@ -139,7 +132,7 @@ extension IBT {
     // Attempt to create the Session struct from
     // the YAML string, else fail.
     guard let weekend = Weekend(yaml: &yamlString) else {
-      logln("Unable to create session.", level: .error)
+      logln("Unable to create weekend.", level: .error)
       return nil
     }
     
@@ -150,8 +143,6 @@ extension IBT {
     for _ in 1...telemetryHeader.channelCount {
       data = fileHandle.readData(ofLength: Channel.Header.length)
       let header = Channel.Header(data: data)
-//      logln("Channel.header.description: \(header.description)")
-//      logln("String describing:          \(String(describing: header))")
       let channel = Channel(header: header)
       channels.updateValue(channel, forKey: header.name)
       total += header.dataType.length
