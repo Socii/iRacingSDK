@@ -7,55 +7,50 @@ import Foundation
 
 // MARK: Definition
 
-/// Channel names.
-///
-public struct Channels {
-  
-  /// Strings for tyre channels.
-  public enum Tyres { }
-  
-  /// Strings for suspension channels.
-  public enum Suspension { }
-  
-  /// Strings for brakes channels.
-  public enum Brakes { }
-  
-  /// Strings for engine channels.
-  public enum Engine { }
-  
-  /// Strings for session channels.
-  public enum Session { }
-  
-  /// Strings for laps channels.
-  public enum Laps { }
-  
-  /// Strings for user input channels.
-  public enum Input { }
-  
-  /// Strings for weather channels.
-  public enum Weather { }
-  
-  /// Strings for vehicle orientation and forces channels.
-  public enum Vehicle { }
+/// Strings for tyre channels.
+public enum Tyres { }
 
-  /// Strings for pit crew channels.
-  public enum PitCrew { }
-  
-  /// Strings for sim channels.
-  public enum Sim { }
-  
-  /// Strings for player channels.
-  public enum Player { }
-  
-  /// String for in-car adjustments.
-  public enum InCar { }
-  
+/// Strings for suspension channels.
+public enum Suspension { }
+
+/// Strings for brakes channels.
+public enum Brakes { }
+
+/// Strings for engine channels.
+public enum Engine { }
+
+/// Strings for session channels.
+public enum Session { }
+
+/// Strings for laps channels.
+public enum Laps { }
+
+/// Strings for user input channels.
+public enum Input { }
+
+/// Strings for weather channels.
+public enum Weather { }
+
+/// Strings for vehicle orientation and forces channels.
+public enum Vehicle { }
+
+/// Strings for pit crew channels.
+public enum PitCrew { }
+
+/// Strings for sim channels.
+public enum Sim { }
+
+/// Strings for player channels.
+public enum Player { }
+
+/// String for in-car adjustments.
+public enum InCar { }
+
 //  public enum Unsure { }
-}
 
 // MARK: - In Car Adjustments
 
-public extension Channels.InCar {
+public extension InCar {
   
   /// In car traction control adjustment.
   static let dcTractionControl = "dcTractionControl"
@@ -76,8 +71,12 @@ public extension Channels.InCar {
 
 // MARK: - Weather
 
-public extension Channels.Weather {
+public extension Weather {
 
+  static var allAir: [String] {
+    return [AirDensity, AirPressure, AirTemp]
+  }
+  
   /// Wind velocity at start/finish line.
   static let WindVel = "WindVel"
 
@@ -113,7 +112,7 @@ public extension Channels.Weather {
 
 // MARK: - Vehicle
 
-public extension Channels.Vehicle {
+public extension Vehicle {
   
   /// Altitude in meters.
   static let Alt = "Alt"
@@ -170,7 +169,7 @@ public extension Channels.Vehicle {
 
 // MARK: - Engine
 
-public extension Channels.Engine {
+public extension Engine {
   
   /// DEPRECATED use DriverCarSLBlinkRPM instead.
   static let ShiftIndicatorPct = "ShiftIndicatorPct"
@@ -224,7 +223,7 @@ public extension Channels.Engine {
 
 // MARK: - Suspension
 
-public extension Channels.Suspension {
+public extension Suspension {
 
   /// RR shock deflection.
   static let RRshockDefl = "RRshockDefl"
@@ -269,7 +268,7 @@ public extension Channels.Suspension {
 
 // MARK: - Sim
 
-public extension Channels.Sim {
+public extension Sim {
 
   /// Percent of available tim bg thread took with a 1 sec avg.
   static let CpuUsageBG = "CpuUsageBG"
@@ -280,7 +279,7 @@ public extension Channels.Sim {
 
 // MARK: - Brakes
 
-public extension Channels.Brakes {
+public extension Brakes {
 
   /// RF brake line pressure.
   static let RFbrakeLinePress = "RFbrakeLinePress"
@@ -301,7 +300,7 @@ public extension Channels.Brakes {
 
 // MARK: - PitCrew
 
-public extension Channels.PitCrew {
+public extension PitCrew {
   
   /// Temperature of track measured by crew around track.
   static let TrackTempCrew = "TrackTempCrew"
@@ -337,7 +336,7 @@ public extension Channels.PitCrew {
 
 // MARK: - Laps
 
-public extension Channels.Laps {
+public extension Laps {
   
   /// Rate of change of delta time for session last lap.
   static let LapDeltaToSessionLastlLap_DD = "LapDeltaToSessionLastlLap_DD"
@@ -424,7 +423,7 @@ public extension Channels.Laps {
 
 // MARK: - Tyres
 
-public extension Channels.Tyres {
+public extension Tyres {
 
   /// LF tire left percent tread remaining.
   static let LFwearL = "LFwearL"
@@ -586,7 +585,7 @@ public extension Channels.Tyres {
 
 // MARK: - Session
 
-public extension Channels.Session {
+public extension Session {
 
   /// Session ID.
   static let SessionUniqueID = "SessionUniqueID"
@@ -616,7 +615,7 @@ public extension Channels.Session {
 
 // MARK: - Player
 
-public extension Channels.Player {
+public extension Player {
 
   /// Players carIdx.
   static let PlayerCarIdx = "PlayerCarIdx"
@@ -658,7 +657,7 @@ public extension Channels.Player {
 
 // MARK: - Input
 
-public extension Channels.Input {
+public extension Input {
   
   /// Push to pass button state.
   static let PushToPass = "PushToPass"
