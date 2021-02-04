@@ -3,7 +3,7 @@ A Swift MacOS framework for reading iRacing .ibt files.
 
 ### Note
 I'm not on the iRacing service at this point, and as such I'm using telemetry files I still have from circa 2016/2017.
-I'm sure iRacing will have updated them since then, if so and if you'd like to help then please drop me some up-to-date .ibt files via email at sociiw@gmail.com
+I'm sure iRacing will have updated them since then, if so and if you'd like to help by providing some up-to-date .ibt files then please contact me via email at sociiw@gmail.com
 
 ## Usage
 Import `iRacingSDK.framework` into your project.
