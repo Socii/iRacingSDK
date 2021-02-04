@@ -15,7 +15,7 @@ public struct Channel {
   private let header: Channel.Header
   
   /// Channel samples.
-  internal(set) public var samples: [IRacingDataTypeRepresentable]! {
+  internal(set) public var samples: [IRacingDataTypeConvertable]! {
     didSet {
       logln(ByteCountFormatter.mb
         .string(fromByteCount: Int64(samples.count)))
@@ -98,35 +98,31 @@ extension Channel {
     /// Creates a new Channel instance from a data sequence.
     ///
     /// - Parameter data: The data used to create the channel.
+    /// - Precondition: The size of `data` must be 144 bytes.
     ///
     init(data: Data) {
-            
+      
+      /// Precondition check.
+      precondition(data.count == Header.length)
+      
       // Get the Channel type.
       let type = data.slice(at: 0) as Int32
       
       // Populate properties from the data.
       dataType = IRacingDataType(rawValue: type)!
-      
       offset = UInt64(data.slice(at: 4) as Int32)
-      
       count = data.slice(at: 8) as Int32
-      
       countAsTime = data.slice(at: 12) as Int8
-      
       name = String(data: data[16..<48],
                     encoding: .ascii)?
         .replacingOccurrences(of: "\0", with: "") ?? ""
-      
       description = String(data: data[48..<112],
                            encoding: .ascii)?
         .replacingOccurrences(of: "\0", with: "")
         .replacingOccurrences(of: "  ", with: ", ") ?? ""
-      
       unit = String(data: data[112..<144],
                     encoding: .ascii)?
         .replacingOccurrences(of: "\0", with: "") ?? ""
-      
-//      print("name: \(name) (\(unit)) - \(dataType)")
     }
   }
 }
