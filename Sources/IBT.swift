@@ -84,7 +84,7 @@ extension IBT {
                        weekend: Weekend,
                        channels: [String: Channel])
   
-  /// Attempts to open a `URL` as an iRacing IBT file.
+  /// Attempt to open an iRacing IBT file from a `URL`.
   ///
   /// - Parameter url: The URL to open.
   /// - Returns: An `IBTinit` tuple if succesful,
@@ -182,17 +182,18 @@ extension IBT {
     ///                   create the header.
     ///   The size of the data sequence must be 32 bytes.
     ///
+    /// - Precondition: The data length must be 32 bytes.
+    ///
     init(data: Data) {
-            
+      
+      /// Precondition check.
+      precondition(data.count == Header.length)
+      
       // Populate the properties.
       startDate = Double(data.slice(at: 0) as Int32)
-      
       startTime = Double(data.slice(at: 8) as Int32)
-      
       endTime = Double(data.slice(at: 16) as Int32)
-      
       lapCount = data.slice(at: 24) as Int32
-      
       recordCount = data.slice(at: 28) as Int32
     }
   }
@@ -202,7 +203,7 @@ extension IBT {
 
 extension IBT.Header {
   
-  /// The length of the disk header in bytes.
+  /// The length of the IBT header in bytes.
   static let length = 32
 }
 
