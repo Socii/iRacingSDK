@@ -62,7 +62,7 @@ extension Channel {
 extension Channel: CustomStringConvertible {
   
   public var description: String {
-    return header.description
+    return "\(header.description) (\(unit)) : \(dataType)"
   }
 }
 
