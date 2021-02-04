@@ -20,7 +20,7 @@ public struct Telemetry {
   /// A dictionary containing all available telemetry channels.
   let channels: [String: Channel]
     
-  /// Session Info.
+  /// Weekend Info.
   private let weekend: Weekend
   
   /// Telemetry start date.
@@ -127,15 +127,29 @@ public extension Telemetry {
   
   /// Returns a telemetry channel with the given name.
   ///
+  /// - Parameter named: The name of the channel to return.
   /// - Precondition: The name of the channel must match
   ///                 one of the iRacing channels.
-  /// - Parameter named: The name of the channel to return.
   ///
-  /// Use the `Channels` object to get the correct name of
-  /// a channel:
+  /// Correct channel name strings are stored in the
+  /// following objects:
+  /// + Tyres
+  /// + Suspension
+  /// + Brakes
+  /// + Engine
+  /// + Session
+  /// + Laps
+  /// + Input
+  /// + Weather
+  /// + Vehicle
+  /// + PitCrew
+  /// + Sim
+  /// + Player
+  /// + InCar
   ///
+  /// Example:
   /// ```
-  /// let c = channel(named: Channels.Suspension.RFshockDefl)
+  /// let c = channel(named: Suspension.RFshockDefl)
   /// ```
   ///
   func channel(named: String) -> Channel {
@@ -146,10 +160,8 @@ public extension Telemetry {
       preconditionFailure("Channel \"\(named)\" does not exist.")
     }
     
-    // Populate the samples.
+    // Populate the samples and return.
     populate(channel: &channel)
-    
-    // Return the channel.
     return channel
   }
   
@@ -180,6 +192,10 @@ public extension Telemetry {
   var yaml: String {
     return weekend.yaml
   }
+  
+  var _channels: [String : Channel] {
+    return channels
+  }
   #endif
 }
 
@@ -209,7 +225,7 @@ private extension Telemetry {
   private func populate(channel: inout Channel) {
     
     // Create an empty array.
-    var samples = [IRacingDataTypeRepresentable]()
+    var samples = [IRacingDataTypeConvertable]()
     
     // Set the cursor to the beginning
     // of the Channel data.
@@ -225,7 +241,7 @@ private extension Telemetry {
       if data.count != length {
         hasSample = false
       } else {
-        samples.append(dataType.value(from: data))
+        samples.append(dataType.converted(from: data))
         cursor += header.bufferLength
       }
     }
@@ -272,6 +288,7 @@ private extension Telemetry {
 
 private extension DateFormatter {
   
+  /// The date format used in the IBT filename.
   static let iRacing: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yy-MM-dd:HH-mm-ss"
@@ -279,6 +296,7 @@ private extension DateFormatter {
     return formatter
   }()
   
+  /// The date format used in the `description` property.
   static let medium: DateFormatter = {
     let formatter = DateFormatter()
     formatter.calendar = .autoupdatingCurrent
@@ -340,36 +358,27 @@ extension Telemetry {
     /// Create a header from data.
     ///
     /// - Parameter data: The data block.
+    /// - Precondition: The data size must be 112 bytes.
     ///
     init(data: Data) {
-            
+      
+      // Precondition check.
+      precondition(data.count == Header.length)
+      
       // Populate the properties from the data object.
       version = data.slice(at: 0) as Int32
-      
       status =  data.slice(at: 4) as Int32
-      
       tickRate = data.slice(at: 8) as Int32
-      
       sessionInfoUpdate = data.slice(at: 12) as Int32
-      
       sessionInfoLength = Int(data.slice(at: 16) as Int32)
-      
       sessionInfoOffset = UInt64(data.slice(at: 20) as Int32)
-      
       channelCount = data.slice(at: 24) as Int32
-      
       channelHeaderOffset = UInt64(data.slice(at: 28) as Int32)
-      
       bufferCount = data.slice(at: 32) as Int32
-      
       bufferLength = UInt64(data.slice(at: 36) as Int32)
-      
       part1 = data.slice(at: 40) as Int32
-      
       part2 = data.slice(at: 44) as Int32
-      
       part3 = data.slice(at: 48) as Int32
-      
       bufferOffset = UInt64(data.slice(at: 52) as Int32)
     }
   }
