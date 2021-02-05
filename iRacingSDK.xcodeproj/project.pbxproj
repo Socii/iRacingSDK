@@ -21,7 +21,6 @@
 		3A81B2D125B4BB9200272889 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2D025B4BB9200272889 /* String+.swift */; };
 		3AA2CAF125B8C19E003D6B3F /* ChannelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */; };
 		3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE916625B5040900DA1DF7 /* Channels.swift */; };
-		3AD2CADC25C9E543007D4336 /* BitFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD2CADB25C9E543007D4336 /* BitFields.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,6 @@
 		3A81B2D025B4BB9200272889 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		3AA2CAF025B8C19E003D6B3F /* ChannelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelNames.swift; sourceTree = "<group>"; };
 		3AAE916625B5040900DA1DF7 /* Channels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channels.swift; sourceTree = "<group>"; };
-		3AD2CADB25C9E543007D4336 /* BitFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitFields.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +120,6 @@
 				3AAE916625B5040900DA1DF7 /* Channels.swift */,
 				3A81B2BF25B4BA2E00272889 /* Channel.swift */,
 				3A81B2C125B4BA3D00272889 /* DataType.swift */,
-				3AD2CADB25C9E543007D4336 /* BitFields.swift */,
 				3A81B2C925B4BA5D00272889 /* YAML.swift */,
 			);
 			path = Sources;
@@ -260,7 +257,6 @@
 				3A81B2BE25B4BA0A00272889 /* Telemetry.swift in Sources */,
 				3AAE916725B5040900DA1DF7 /* Channels.swift in Sources */,
 				3A81B2D125B4BB9200272889 /* String+.swift in Sources */,
-				3AD2CADC25C9E543007D4336 /* BitFields.swift in Sources */,
 				3A81B2C225B4BA3D00272889 /* DataType.swift in Sources */,
 				3A81B2CA25B4BA5D00272889 /* YAML.swift in Sources */,
 				3A81B2C825B4BA5500272889 /* Weekend.swift in Sources */,
