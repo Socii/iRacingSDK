@@ -7,7 +7,8 @@ import Foundation
 
 // MARK: Definition
 
-/// An iRacing telemetry object.
+/// An interface to an iRacing
+/// telemetry .ibt file.
 ///
 public struct Telemetry {
   
@@ -29,6 +30,9 @@ public struct Telemetry {
   /// Attempt to create a `Telemetry` instance from a `URL`.
   ///
   /// - Parameter url: the URL of the telemetry.
+  /// - Returns: An instance of `Telemetry` if successful,
+  ///            or `nil` if the url doesn't represent
+  ///            a valid iRacing .ibt file.
   ///
   public init?(url: URL) {
     
@@ -131,8 +135,9 @@ public extension Telemetry {
   /// - Precondition: The name of the channel must match
   ///                 one of the iRacing channels.
   ///
+  /// # Names
   /// Correct channel name strings are stored in the
-  /// following objects:
+  /// following `Enums`:
   /// + Tyres
   /// + Suspension
   /// + Brakes
@@ -147,7 +152,7 @@ public extension Telemetry {
   /// + Player
   /// + InCar
   ///
-  /// Example:
+  /// # Example
   /// ```
   /// let c = channel(named: Suspension.RFshockDefl)
   /// ```
@@ -171,6 +176,7 @@ public extension Telemetry {
   /// - Precondition: The name(s) of the channel(s) must match
   ///                 one of the iRacing channels.
   ///
+  /// # Names
   /// Correct channel name strings are stored in the
   /// following `Enums`:
   /// + Tyres
@@ -187,7 +193,7 @@ public extension Telemetry {
   /// + Player
   /// + InCar
   ///
-  /// Example:
+  /// # Example
   /// ```
   /// let c = channels(named: [Tyres.LFpressure,
   ///                          Tyres.LRpressure,
@@ -238,7 +244,7 @@ extension Telemetry: CustomStringConvertible {
 
 private extension Telemetry {
     
-  /// Populates a `Channel` with sample data.
+  /// Populates a channel with sample data.
   ///
   /// - Parameter channel: The iRacing channel.
   ///
@@ -264,7 +270,7 @@ private extension Telemetry {
     }
   }
   
-  /// Populates multiple `Channels` with sample data.
+  /// Populates multiple channels with sample data.
   ///
   /// - Parameter channels: The iRacing channels.
   ///
