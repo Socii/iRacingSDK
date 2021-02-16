@@ -34,7 +34,7 @@ and an `Array` of `String` dictionaries for the drivers in the session:
 telemetry.drivers // Drivers in the session
 ```
 ### Telemetry Channels
-Telemetry channels can be accessed using the `channel(named:)` method.
+Telemetry channels can be accessed using the `channel(named:)` or `channels(named:)` methods.
 Strings containing the channel names can be found in the following objects:
 - Tyres
 - Suspension
