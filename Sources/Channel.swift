@@ -9,19 +9,13 @@ import Foundation
 
 /// An object representing an iRacing telemetry channel.
 ///
-public struct Channel {
+public class Channel {
   
   /// The channel header.
   private let header: Channel.Header
   
   /// Channel samples.
-  internal(set) public var samples: [IRacingDataTypeConvertable]! {
-    didSet {
-      logln(ByteCountFormatter.mb
-        .string(fromByteCount: Int64(samples.count)))
-      logln(type(of: samples[0]))
-    }
-  }
+  var samples = [IRacingDataTypeConvertable]()
   
   /// Creates a new `Channel` from a header.
   ///
@@ -65,6 +59,16 @@ extension Channel: CustomStringConvertible {
     return "\(header.description) (\(unit)) : \(dataType)"
   }
 }
+
+// MARK: - Equatable
+
+//extension Channel: Equatable {
+//  public static func == (lhs: Channel, rhs: Channel) -> Bool {
+//    return lhs.name == rhs.name &&
+//    lhs.dataType == rhs.dataType &&
+//    lhs.samples as? [IRacingDataTypeConvertable.Self] == rhs.samples as? [IRacingDataTypeConvertable.Type]
+//  }
+//}
 
 // MARK: - Header
 
