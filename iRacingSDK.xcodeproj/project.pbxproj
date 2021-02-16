@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A4B096925CEB459005B5337 /* SamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B096825CEB458005B5337 /* SamplesTests.swift */; };
 		3A81B2AB25B4B8FD00272889 /* iRacingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A81B2A125B4B8FD00272889 /* iRacingSDK.framework */; };
-		3A81B2B025B4B8FD00272889 /* iRacingSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2AF25B4B8FD00272889 /* iRacingSDKTests.swift */; };
+		3A81B2B025B4B8FD00272889 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2AF25B4B8FD00272889 /* PerformanceTests.swift */; };
 		3A81B2B225B4B8FD00272889 /* iRacingSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A81B2A425B4B8FD00272889 /* iRacingSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A81B2BE25B4BA0A00272889 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2BD25B4BA0A00272889 /* Telemetry.swift */; };
 		3A81B2C025B4BA2E00272889 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81B2BF25B4BA2E00272889 /* Channel.swift */; };
@@ -34,11 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A4B096825CEB458005B5337 /* SamplesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesTests.swift; sourceTree = "<group>"; };
 		3A81B2A125B4B8FD00272889 /* iRacingSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iRacingSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A81B2A425B4B8FD00272889 /* iRacingSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRacingSDK.h; sourceTree = "<group>"; };
 		3A81B2A525B4B8FD00272889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A81B2AA25B4B8FD00272889 /* iRacingSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRacingSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A81B2AF25B4B8FD00272889 /* iRacingSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iRacingSDKTests.swift; sourceTree = "<group>"; };
+		3A81B2AF25B4B8FD00272889 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		3A81B2B125B4B8FD00272889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A81B2BD25B4BA0A00272889 /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		3A81B2BF25B4BA2E00272889 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -104,7 +106,8 @@
 		3A81B2AE25B4B8FD00272889 /* iRacingSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A81B2AF25B4B8FD00272889 /* iRacingSDKTests.swift */,
+				3A81B2AF25B4B8FD00272889 /* PerformanceTests.swift */,
+				3A4B096825CEB458005B5337 /* SamplesTests.swift */,
 				3A81B2B125B4B8FD00272889 /* Info.plist */,
 			);
 			path = iRacingSDKTests;
@@ -271,7 +274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A81B2B025B4B8FD00272889 /* iRacingSDKTests.swift in Sources */,
+				3A81B2B025B4B8FD00272889 /* PerformanceTests.swift in Sources */,
+				3A4B096925CEB459005B5337 /* SamplesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +415,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T2QBYJ23J6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -440,7 +444,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = T2QBYJ23J6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
