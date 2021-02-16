@@ -129,7 +129,7 @@ extension IBT {
       return nil
     }
     
-    // Attempt to create the Session struct from
+    // Attempt to create the Weekend struct from
     // the YAML string, else fail.
     guard let weekend = Weekend(yaml: &yamlString) else {
       logln("Unable to create weekend.", level: .error)
