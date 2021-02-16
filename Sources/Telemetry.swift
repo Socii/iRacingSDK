@@ -165,28 +165,48 @@ public extension Telemetry {
     return channel
   }
   
-//  func channels(named strings: [String]) -> [Channel] {
-//    
-//    let notFound = strings.filter { channels[$0] == nil }
-//    precondition(notFound.isEmpty, "Channels named \"\(notFound)\" do not exist.")
-//    
-//    // Precondition: Check the channel name
-//    // exists in the dictionary.
-//    var passed = true
-//    var notFoundNames = [String]()
-//    for name in strings {
-//      if channels[name] == nil {
-//        passed = false
-//        notFoundNames.append(name)
-//      }
-//    }
-//    
-//    guard passed else {
-//      preconditionFailure("Channels \"\(notFoundNames)\" do not exist.")
-//    }
-//    
-//    return channels
-//  }
+  /// Returns a dictionary containing telemetry channels.
+  ///
+  /// - Parameter names: The name(s) of the channel(s).
+  /// - Precondition: The name(s) of the channel(s) must match
+  ///                 one of the iRacing channels.
+  ///
+  /// Correct channel name strings are stored in the
+  /// following `Enums`:
+  /// + Tyres
+  /// + Suspension
+  /// + Brakes
+  /// + Engine
+  /// + Session
+  /// + Laps
+  /// + Input
+  /// + Weather
+  /// + Vehicle
+  /// + PitCrew
+  /// + Sim
+  /// + Player
+  /// + InCar
+  ///
+  /// Example:
+  /// ```
+  /// let c = channels(named: [Tyres.LFpressure,
+  ///                          Tyres.LRpressure,
+  ///                          Tyres.RFpressure,
+  ///                          Tyres.RRpressure])
+  /// ```
+  ///
+  func channels(named names: [String]) -> [String : Channel] {
+    
+    /// Precondition check.
+    let notFound = names.filter { channels[$0] == nil }
+    precondition(notFound.isEmpty, "Channel(s) named \"\(notFound)\" do not exist.")
+    
+    // Populate the requested Channels with sample data.
+    let selected = channels.filter { names.contains($0.key) }
+    var channelArray = Array(selected.values)
+    populate(channels: &channelArray)
+    return selected
+  }
   
   #if DEBUG
   var yaml: String {
@@ -254,36 +274,34 @@ private extension Telemetry {
   ///
   /// - Parameter channels: The iRacing channels.
   ///
-//  private func populate(channels: inout [Channel]) {
-//
-//    let sorted = channels.sort { $0.offset < $1.offset }
-//
-//
-//    // Create an empty array.
-//    var samples = [IRacingDataTypeRepresentable]()
-//
-//    // Set the cursor to the beginning
-//    // of the Channel data.
-//    var cursor = header.bufferOffset + channel.offset
-//
-//    // Read from the IBT file.
-//    let dataType = channel.dataType
-//    let length = dataType.length
-//    var hasSample = true
-//    while hasSample == true {
-//      ibt.seek(toFileOffset: cursor)
-//      let data = ibt.readData(ofLength: length)
-//      if data.count != length {
-//        hasSample = false
-//      } else {
-//        samples.append(dataType.value(from: data))
-//        cursor += header.bufferLength
-//      }
-//    }
-//
-//    // Add the sample data to the channel.
-//    channel.samples = samples
-//  }
+  private func populate(channels: inout [Channel]) {
+
+    // Sort the channels in order of their offset
+    // in the data sequence.
+    let sorted = channels.sorted { $0.offset < $1.offset }
+
+    // Set the cursor to the beginning
+    // of the Channel data.
+    var cursor = header.bufferOffset
+
+    // Read from the IBT file.
+    var hasSample = true
+    while hasSample == true {
+      for channel in sorted {
+        let offset = cursor + channel.offset
+        let dataType = channel.dataType
+        let length = dataType.length
+        ibt.seek(toFileOffset: offset)
+        let data = ibt.readData(ofLength: length)
+        if data.count != length {
+          hasSample = false
+        } else {
+          channel.samples.append(dataType.converted(from: data))
+        }
+      }
+      cursor += header.bufferLength
+    }
+  }
 }
 
 private extension DateFormatter {
