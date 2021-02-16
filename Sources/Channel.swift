@@ -15,7 +15,7 @@ public class Channel {
   private let header: Channel.Header
   
   /// Channel samples.
-  var samples = [IRacingDataTypeConvertable]()
+  public var samples = [IRacingDataTypeConvertable]()
   
   /// Creates a new `Channel` from a header.
   ///
