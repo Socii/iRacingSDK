@@ -72,12 +72,12 @@ public struct Telemetry {
 
 public extension Telemetry {
   
-  /// Returns a dictionary containing session information.
+  /// Returns a dictionary containing weekend information.
   var info: [String : String] {
     return weekend.info
   }
   
-  /// Returns a dictionary containing session options.
+  /// Returns a dictionary containing weekend options.
   var options: [String : String] {
     return weekend.options
   }
@@ -243,10 +243,7 @@ private extension Telemetry {
   /// - Parameter channel: The iRacing channel.
   ///
   private func populate(channel: inout Channel) {
-    
-    // Create an empty array.
-    var samples = [IRacingDataTypeConvertable]()
-    
+        
     // Set the cursor to the beginning
     // of the Channel data.
     var cursor = header.bufferOffset + channel.offset
@@ -261,13 +258,10 @@ private extension Telemetry {
       if data.count != length {
         hasSample = false
       } else {
-        samples.append(dataType.converted(from: data))
+        channel.samples.append(dataType.converted(from: data))
         cursor += header.bufferLength
       }
     }
-  
-    // Add the sample data to the channel.
-    channel.samples = samples
   }
   
   /// Populates multiple `Channels` with sample data.
